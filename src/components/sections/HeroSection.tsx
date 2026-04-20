@@ -7,7 +7,6 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0A1628]">
-      {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628] via-[#0D1E35] to-[#071020]"></div>
         <div className="absolute inset-0 opacity-[0.04]"
@@ -19,12 +18,8 @@ export default function HeroSection() {
         <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-[#E8500A] rounded-full opacity-[0.06] blur-[120px]"></div>
       </div>
 
-      <div className="container-main relative z-10 pt-32 pb-20">
+      <div className="container-main relative z-10 pt-36 pb-24">
         <div className="max-w-4xl">
-          {/* Badge */}
-          </div>
-
-          {/* Heading */}
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05] mb-8">
             {locale === 'ru' ? (
               <>Профессиональное<br />
@@ -37,12 +32,10 @@ export default function HeroSection() {
             )}
           </h1>
 
-          {/* Subtitle */}
           <p className="text-white/55 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
             {t('subtitle')}
           </p>
 
-          {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
             <Link href={`/${locale}/contacts`} className="btn-primary text-base">
               {t('cta_primary')}
@@ -55,7 +48,6 @@ export default function HeroSection() {
             </Link>
           </div>
 
-          {/* Stats */}
           <div className="flex flex-wrap gap-10">
             {[
               { value: t('stat1_value'), label: t('stat1_label') },
@@ -70,7 +62,6 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Brand logos strip */}
         <div className="mt-20 pt-8 border-t border-white/10">
           <p className="text-white/30 text-xs uppercase tracking-widest mb-6">
             {locale === 'ru' ? 'Официальный поставщик' : 'Authorized Supplier'}
