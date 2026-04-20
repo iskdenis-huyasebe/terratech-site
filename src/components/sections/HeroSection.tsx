@@ -7,6 +7,7 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0A1628]">
+      {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628] via-[#0D1E35] to-[#071020]"></div>
         <div className="absolute inset-0 opacity-[0.04]"
@@ -15,11 +16,20 @@ export default function HeroSection() {
             backgroundSize: '80px 80px'
           }}
         ></div>
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-[#E8500A] rounded-full opacity-[0.06] blur-[120px]"></div>
       </div>
 
-      <div className="container-main relative z-10 pt-36 pb-24">
-        <div className="max-w-4xl">
+      {/* Right side image */}
+      <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block">
+        <img
+          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80"
+          alt="Industrial equipment"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628] via-[#0A1628]/60 to-transparent"></div>
+      </div>
+
+      <div className="container-main relative z-10 pt-40 pb-24">
+        <div className="lg:w-1/2">
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05] mb-8">
             {locale === 'ru' ? (
               <>Профессиональное<br />
@@ -32,7 +42,7 @@ export default function HeroSection() {
             )}
           </h1>
 
-          <p className="text-white/55 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
+          <p className="text-white/55 text-lg leading-relaxed max-w-xl mb-10">
             {t('subtitle')}
           </p>
 
@@ -43,7 +53,7 @@ export default function HeroSection() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
-            <Link href={`/${locale}/products`} className="btn-secondary text-base border-white/30 text-white hover:bg-white hover:text-[#0A1628]">
+            <Link href={`/${locale}/products`} className="btn-secondary text-base border-white/40 text-white hover:bg-white hover:text-[#0A1628]">
               {t('cta_secondary')}
             </Link>
           </div>
