@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "projects": "Projects",
+    "about": "About",
+    "contacts": "Contacts",
+    "request": "Get a Quote"
+  },
+  "hero": {
+    "badge": "Industrial Equipment Supplier",
+    "title": "Professional Equipment for IT Infrastructure",
+    "subtitle": "We supply automation cabinets, switchgear components and data center solutions from Rittal, Legrand, Phoenix Contact to Kazakhstan, Uzbekistan, Georgia, Azerbaijan and CIS countries",
+    "cta_primary": "Request a Quote",
+    "cta_secondary": "View Products",
+    "stat1_value": "Since 2018",
+    "stat1_label": "in the market",
+    "stat2_value": "50+",
+    "stat2_label": "completed projects",
+    "stat3_value": "6",
+    "stat3_label": "countries served"
+  },
+  "products": {
+    "title": "Products",
+    "subtitle": "We supply equipment from leading global manufacturers with quality guarantee and on-time delivery",
+    "cabinets_title": "Cabinets & Enclosures",
+    "cabinets_desc": "Automation cabinets, switchgear, server racks from ZPAS and Rittal for industrial facilities and data centers",
+    "components_title": "Switchgear Components",
+    "components_desc": "Terminal blocks, relays, power supplies, circuit breakers from Phoenix Contact and Legrand",
+    "datacenter_title": "Data Center Solutions",
+    "datacenter_desc": "Raised floors, cooling systems and infrastructure solutions from Weiss for data centers",
+    "ups_title": "Uninterruptible Power Supplies",
+    "ups_desc": "UPS and backup power systems from Hitec for mission-critical facilities",
+    "view_all": "All Categories"
+  },
+  "brands": {
+    "title": "Brands",
+    "subtitle": "Authorized supplier of leading global manufacturers"
+  },
+  "why": {
+    "title": "Why Choose Terratech",
+    "subtitle": "We don't just sell equipment — we provide complete project support",
+    "r1_title": "Since 2018",
+    "r1_desc": "Over 50 completed projects in 6 countries. Deep knowledge of Central Asian and Caucasus markets.",
+    "r2_title": "On-Time Delivery",
+    "r2_desc": "Reliable logistics to Kazakhstan, Uzbekistan, Georgia, Azerbaijan, Armenia and Lithuania.",
+    "r3_title": "Technical Consulting",
+    "r3_desc": "We help select the optimal solution for your project requirements and budget.",
+    "r4_title": "Original Products",
+    "r4_desc": "Only certified equipment directly from manufacturers.",
+    "r5_title": "Full Support",
+    "r5_desc": "From equipment selection and design to assembly and commissioning.",
+    "r6_title": "Competitive Pricing",
+    "r6_desc": "Direct manufacturer contracts allow us to offer balanced, competitive prices."
+  },
+  "geography": {
+    "title": "Markets",
+    "subtitle": "We work with customers across the region",
+    "countries": "Kazakhstan · Uzbekistan · Georgia · Azerbaijan · Armenia · Lithuania"
+  },
+  "contact": {
+    "title": "Request a Quote",
+    "subtitle": "Leave a request — we respond within 2 hours during business hours",
+    "name": "Name",
+    "company": "Company",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Describe your task or list the equipment needed",
+    "submit": "Send Request",
+    "sending": "Sending...",
+    "success": "Request sent! We will contact you shortly.",
+    "error": "Sending error. Please email us directly: info@terradstr.com",
+    "offices": "Offices",
+    "office_lt": "Lithuania (Vilnius): Airiu 10C, 13282",
+    "office_es": "Spain (Gandia): Ermita 22, 5-10",
+    "phone_lt": "+370 652 88897",
+    "phone_es": "+34 641 005590",
+    "phone_kz": "+7 777 575 5748"
+  },
+  "footer": {
+    "desc": "Supplier of professional equipment for IT infrastructure and industrial automation. In business since 2018.",
+    "rights": "All rights reserved."
+  },
+  "meta": {
+    "home_title": "Terratech — Rittal, Legrand, Phoenix Contact Supply to Kazakhstan & CIS",
+    "home_desc": "Supplier of automation cabinets, switchgear, data center components. Rittal, Legrand, Phoenix Contact, ZPAS, Weiss. Delivery to Kazakhstan, Uzbekistan, Georgia, Azerbaijan. Since 2018.",
+    "products_title": "Products — Cabinets, Components, Data Centers | Terratech",
+    "contacts_title": "Contacts & Quote Request | Terratech"
+  }
+}
