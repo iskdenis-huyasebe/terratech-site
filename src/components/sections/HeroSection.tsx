@@ -22,9 +22,6 @@ export default function HeroSection() {
       <div className="container-main relative z-10 pt-32 pb-20">
         <div className="max-w-4xl">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 border border-white/15 rounded-full px-4 py-1.5 mb-10">
-            <div className="w-1.5 h-1.5 bg-[#E8500A] rounded-full"></div>
-            <span className="text-white/70 text-xs font-medium tracking-wide uppercase">{t('badge')}</span>
           </div>
 
           {/* Heading */}
