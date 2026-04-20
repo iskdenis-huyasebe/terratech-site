@@ -20,7 +20,7 @@ export default function HeroSection() {
 
       <div className="container-main relative z-10" style={{paddingTop: '120px', paddingBottom: '80px'}}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left */}
+          {/* Left — text */}
           <div>
             <h1 className="font-display text-5xl md:text-6xl xl:text-7xl text-white leading-[1.05] mb-8">
               {locale === 'ru' ? (
@@ -45,7 +45,15 @@ export default function HeroSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
-              <Link href={`/${locale}/products`} className="btn-secondary text-base border-white/40 text-white hover:bg-white hover:text-[#0A1628]">
+              <Link href={`/${locale}/products`}
+                className="text-base font-semibold inline-flex items-center gap-2 transition-all"
+                style={{
+                  border: '1.5px solid rgba(255,255,255,0.4)',
+                  color: 'white',
+                  padding: '14px 28px',
+                  borderRadius: '4px',
+                }}
+              >
                 {t('cta_secondary')}
               </Link>
             </div>
@@ -64,34 +72,23 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right — brand cards */}
-          <div className="hidden lg:grid grid-cols-2 gap-4">
-            {[
-              { icon: '🏭', title: 'Rittal & ZPAS', descRu: 'Шкафы автоматики и серверные стойки', descEn: 'Automation cabinets and server racks' },
-              { icon: '⚡', title: 'Phoenix Contact', descRu: 'Клеммы, реле, блоки питания', descEn: 'Terminal blocks, relays, power supplies' },
-              { icon: '💡', title: 'Legrand', descRu: 'Электрика и кабельные системы', descEn: 'Electrical and cable management' },
-              { icon: '🔋', title: 'Hitec UPS', descRu: 'Источники бесперебойного питания', descEn: 'Uninterruptible power supplies' },
-            ].map((card, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/8 hover:border-[#E8500A]/30 transition-all">
-                <span className="text-2xl mb-3 block">{card.icon}</span>
-                <p className="text-white font-semibold text-sm mb-1">{card.title}</p>
-                <p className="text-white/40 text-xs leading-relaxed">{locale === 'ru' ? card.descRu : card.descEn}</p>
+          {/* Right — industrial photo */}
+          <div className="hidden lg:block relative h-[520px] rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80"
+              alt="Industrial automation cabinets"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/80 via-transparent to-transparent"></div>
+            <div className="absolute bottom-6 left-6 right-6">
+              <div className="flex flex-wrap gap-3">
+                {['Rittal', 'Legrand', 'Phoenix Contact', 'ZPAS', 'Weiss', 'Hitec'].map((brand) => (
+                  <span key={brand} className="text-xs font-semibold px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-white/80 border border-white/20">
+                    {brand}
+                  </span>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Brands strip */}
-        <div className="mt-16 pt-8 border-t border-white/10">
-          <p className="text-white/30 text-xs uppercase tracking-widest mb-5">
-            {locale === 'ru' ? 'Официальный поставщик' : 'Authorized Supplier'}
-          </p>
-          <div className="flex flex-wrap gap-8 items-center">
-            {['Rittal', 'Legrand', 'Phoenix Contact', 'ZPAS', 'Weiss', 'Hitec'].map((brand) => (
-              <span key={brand} className="text-white/25 font-semibold text-sm tracking-wide hover:text-white/60 transition-colors cursor-default">
-                {brand}
-              </span>
-            ))}
+            </div>
           </div>
         </div>
       </div>
