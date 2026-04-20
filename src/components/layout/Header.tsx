@@ -34,20 +34,18 @@ export default function Header() {
       scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E2DDD6]' : 'bg-transparent'
     )}>
       <div className="container-main">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex items-center gap-2">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-[#E8500A] rounded-sm flex items-center justify-center">
-                <span className="text-white font-bold text-sm font-display">T</span>
-              </div>
-              <span className={clsx(
-                'font-bold text-xl tracking-tight transition-colors',
-                scrolled ? 'text-[#0A1628]' : 'text-white'
-              )}>
-                Terra<span className="text-[#E8500A]">tech</span>
-              </span>
+          <Link href={`/${locale}`} className="flex items-center gap-2 flex-shrink-0">
+            <div className="w-8 h-8 bg-[#E8500A] rounded-sm flex items-center justify-center">
+              <span className="text-white font-bold text-sm">T</span>
             </div>
+            <span className={clsx(
+              'font-bold text-xl tracking-tight transition-colors',
+              scrolled ? 'text-[#0A1628]' : 'text-white'
+            )}>
+              Terra<span className="text-[#E8500A]">tech</span>
+            </span>
           </Link>
 
           {/* Desktop Nav */}
@@ -57,7 +55,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={clsx(
-                  'text-sm font-medium transition-colors hover:text-[#E8500A]',
+                  'text-sm font-medium transition-colors hover:text-[#E8500A] whitespace-nowrap',
                   scrolled ? 'text-[#0A1628]' : 'text-white/90',
                   pathname === link.href && 'text-[#E8500A]'
                 )}
@@ -68,8 +66,7 @@ export default function Header() {
           </nav>
 
           {/* Right side */}
-          <div className="hidden md:flex items-center gap-4">
-            {/* Language switcher */}
+          <div className="hidden md:flex items-center gap-3 flex-shrink-0">
             <Link
               href={switchPath}
               className={clsx(
@@ -87,17 +84,15 @@ export default function Header() {
           </div>
 
           {/* Mobile menu button */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2"
-          >
-            <div className={clsx('space-y-1.5', mobileOpen && 'hidden')}>
-              <span className={clsx('block w-6 h-0.5 transition-colors', scrolled ? 'bg-[#0A1628]' : 'bg-white')}></span>
-              <span className={clsx('block w-6 h-0.5 transition-colors', scrolled ? 'bg-[#0A1628]' : 'bg-white')}></span>
-              <span className={clsx('block w-4 h-0.5 transition-colors', scrolled ? 'bg-[#0A1628]' : 'bg-white')}></span>
-            </div>
-            {mobileOpen && (
-              <span className="text-[#0A1628] text-xl font-light">✕</span>
+          <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden p-2">
+            {mobileOpen ? (
+              <span className={clsx('text-xl font-light', scrolled ? 'text-[#0A1628]' : 'text-white')}>✕</span>
+            ) : (
+              <div className="space-y-1.5">
+                <span className={clsx('block w-6 h-0.5', scrolled ? 'bg-[#0A1628]' : 'bg-white')}></span>
+                <span className={clsx('block w-6 h-0.5', scrolled ? 'bg-[#0A1628]' : 'bg-white')}></span>
+                <span className={clsx('block w-4 h-0.5', scrolled ? 'bg-[#0A1628]' : 'bg-white')}></span>
+              </div>
             )}
           </button>
         </div>
@@ -106,12 +101,8 @@ export default function Header() {
         {mobileOpen && (
           <div className="md:hidden bg-white border-t border-[#E2DDD6] py-4 space-y-1">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="block px-4 py-3 text-[#0A1628] font-medium hover:text-[#E8500A] hover:bg-[#F7F6F3] rounded"
-              >
+              <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}
+                className="block px-4 py-3 text-[#0A1628] font-medium hover:text-[#E8500A] hover:bg-[#F7F6F3] rounded">
                 {link.label}
               </Link>
             ))}
