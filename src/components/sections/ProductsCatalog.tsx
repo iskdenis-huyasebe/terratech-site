@@ -17,6 +17,7 @@ type Product = {
   specsEn: string[];
   category: string;
   url: string;
+  image: string;
   highlight?: boolean;
 };
 
@@ -45,6 +46,7 @@ const products: Product[] = [
     specsEn: ['800×600×2000 mm (typical)', 'IP55 / IP66', 'RAL 7035', 'Roof load 500 kg', 'EN 62208'],
     category: 'cabinets',
     url: 'https://www.rittal.com/lt-en/products/enclosures/vx25/',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
     highlight: true,
   },
   {
@@ -61,6 +63,7 @@ const products: Product[] = [
     specsEn: ['600–1200 mm (width)', 'IP54 / IP66', '1.5–2.0 mm steel', 'Modular design', 'IEC 62208'],
     category: 'cabinets',
     url: 'https://www.rittal.com/lt-en/products/enclosures/ts-8/',
+    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80',
   },
   {
     id: 'rittal-ae',
@@ -76,6 +79,7 @@ const products: Product[] = [
     specsEn: ['150×150 — 760×760 mm', 'IP66 / NEMA 4', 'Stainless / polyester', '180° hinges', 'IEC 62208'],
     category: 'cabinets',
     url: 'https://www.rittal.com/lt-en/products/enclosures/ae/',
+    image: 'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=600&q=80',
   },
   {
     id: 'rittal-ts-it',
@@ -91,6 +95,7 @@ const products: Product[] = [
     specsEn: ['800×1000×2000 mm', '42U / 47U', 'IP20 / IP55', 'Load: 1500 kg', '19" EIA-310'],
     category: 'racks',
     url: 'https://www.rittal.com/lt-en/products/it-infrastructure/server-racks/',
+    image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80',
     highlight: true,
   },
   {
@@ -107,6 +112,7 @@ const products: Product[] = [
     specsEn: ['Up to 30 kW/rack', 'COP up to 7.5', 'Type: in-row', 'R134a / water', 'EN 14511'],
     category: 'climate',
     url: 'https://www.rittal.com/lt-en/products/it-infrastructure/cooling/',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80',
   },
   {
     id: 'rittal-sk',
@@ -122,6 +128,7 @@ const products: Product[] = [
     specsEn: ['0.5 — 4.0 kW', 'Class: TopTherm', 'Wall / roof mount', 'IoT Ready', 'EN 60529'],
     category: 'climate',
     url: 'https://www.rittal.com/lt-en/products/climate-control/',
+    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80',
   },
 
   // ── ZPAS ─────────────────────────────────────────────────
@@ -139,6 +146,7 @@ const products: Product[] = [
     specsEn: ['600–1200 mm (width)', 'IP54 / IP65', 'RAL 7035 / RAL 9005', 'Double doors', 'EN 62208'],
     category: 'cabinets',
     url: 'https://www.zpas.pl/en/products/cabinets/',
+    image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80',
     highlight: true,
   },
   {
@@ -155,6 +163,7 @@ const products: Product[] = [
     specsEn: ['600×1000×2000 mm', '42U', 'IP20', 'Load: 1200 kg', '19" EIA-310'],
     category: 'racks',
     url: 'https://www.zpas.pl/en/products/rack-cabinets/',
+    image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=80',
   },
   {
     id: 'zpas-wall',
@@ -170,6 +179,7 @@ const products: Product[] = [
     specsEn: ['450×600 — 600×600 mm', '9U / 12U / 15U', 'IP20', 'Depth 300–450 mm', 'RAL 9005'],
     category: 'cabinets',
     url: 'https://www.zpas.pl/en/products/wall-cabinets/',
+    image: 'https://images.unsplash.com/photo-1551808525-8cdb4571f779?w=600&q=80',
   },
   {
     id: 'zpas-outdoor',
@@ -185,6 +195,7 @@ const products: Product[] = [
     specsEn: ['IP55 / IP65', 'Operating T°: −40…+55°C', 'Double-skin wall', 'Heating built-in', 'IEC 62208'],
     category: 'cabinets',
     url: 'https://www.zpas.pl/en/products/outdoor-cabinets/',
+    image: 'https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?w=600&q=80',
   },
 
   // ── WEISS (Raised Floors) ────────────────────────────────
@@ -202,6 +213,7 @@ const products: Product[] = [
     specsEn: ['Up to 1500 kg/m²', 'Height: 150–1000 mm', 'Tile: 600×600 mm', 'Anti-static < 10⁶ Ω', 'EN 12825'],
     category: 'floor',
     url: 'https://www.weiss-dbs.com/',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80',
     highlight: true,
   },
 
@@ -220,6 +232,7 @@ const products: Product[] = [
     specsEn: ['0.08 — 185 mm²', '24 / 48 / 250 VDC', 'UL / CE / CSA', 'Spring / screw clamp', 'DIN EN 60947-7'],
     category: 'components',
     url: 'https://www.phoenixcontact.com/en-lt/',
+    image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80',
   },
   {
     id: 'phoenix-psu',
@@ -235,6 +248,7 @@ const products: Product[] = [
     specsEn: ['24 VDC (5–40 A)', 'Efficiency: 95.5%', 'SFB technology', 'MTBF > 500,000 h', 'IEC 62368-1'],
     category: 'components',
     url: 'https://www.phoenixcontact.com/en-lt/',
+    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=80',
   },
   {
     id: 'legrand-xform',
@@ -250,6 +264,7 @@ const products: Product[] = [
     specsEn: ['160 / 400 / 800 / 4000 A', 'IP30 / IP43 / IP55', 'Copper / aluminium busbar', 'ATS ready', 'IEC 61439'],
     category: 'components',
     url: 'https://www.legrandgroup.com/en',
+    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80',
   },
 ];
 
@@ -350,26 +365,42 @@ export default function ProductsCatalog() {
                   product.highlight ? 'border-[#E8500A]/30 ring-1 ring-[#E8500A]/20' : 'border-[#E2DDD6]'
                 }`}
               >
+                {/* Image */}
+                <div className="relative h-44 overflow-hidden bg-[#F0EDE8]">
+                  <img
+                    src={product.image}
+                    alt={isRu ? product.nameRu : product.nameEn}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: `linear-gradient(135deg, ${product.brandColor}40 0%, transparent 60%)` }}
+                  />
+                  {/* Brand badge on image */}
+                  <div className="absolute top-3 left-3">
+                    <span
+                      className="text-xs font-bold px-2.5 py-1 rounded-full text-white shadow-sm"
+                      style={{ background: product.brandColor }}
+                    >
+                      {product.brand}
+                    </span>
+                  </div>
+                  {product.highlight && (
+                    <div className="absolute top-3 right-3">
+                      <span className="text-xs font-semibold text-white bg-[#E8500A] px-2 py-0.5 rounded shadow-sm">
+                        {isRu ? 'Топ продаж' : 'Best seller'}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
                 {/* Card header */}
                 <div className="p-6 pb-4 flex-1">
                   {/* Brand + series row */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-2">
-                      <span
-                        className="text-xs font-bold px-2.5 py-1 rounded-full text-white"
-                        style={{ background: product.brandColor }}
-                      >
-                        {product.brand}
-                      </span>
-                      <span className="text-xs text-[#0A1628]/40 font-medium">
-                        {isRu ? product.seriesRu : product.seriesEn}
-                      </span>
-                    </div>
-                    {product.highlight && (
-                      <span className="text-xs font-semibold text-[#E8500A] bg-[#E8500A]/8 px-2 py-0.5 rounded">
-                        {isRu ? 'Топ продаж' : 'Best seller'}
-                      </span>
-                    )}
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="text-xs text-[#0A1628]/40 font-medium" style={{ color: product.brandColor }}>
+                      {isRu ? product.seriesRu : product.seriesEn}
+                    </span>
                   </div>
 
                   {/* Name */}
