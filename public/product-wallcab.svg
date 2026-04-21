@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+<defs>
+<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0f1525"/><stop offset="100%" stop-color="#0a0e1a"/></linearGradient>
+<linearGradient id="wall" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#131a2e"/><stop offset="100%" stop-color="#0d1322"/></linearGradient>
+<linearGradient id="cab" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#243050"/><stop offset="50%" stop-color="#3a4868"/><stop offset="100%" stop-color="#1e2840"/></linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="1.5"/></filter>
+<filter id="bigGlow"><feGaussianBlur stdDeviation="18"/></filter>
+<filter id="wallShadow"><feGaussianBlur stdDeviation="4"/></filter>
+</defs>
+<rect width="600" height="400" fill="url(#bg)"/>
+
+<!-- Wall background -->
+<rect width="600" height="400" fill="url(#wall)"/>
+<!-- Subtle concrete/wall texture lines -->
+<g stroke="#1a2236" stroke-width="0.5" opacity="0.3">
+  <line x1="0" y1="80" x2="600" y2="82"/>
+  <line x1="0" y1="160" x2="600" y2="162"/>
+  <line x1="0" y1="240" x2="600" y2="242"/>
+  <line x1="0" y1="320" x2="600" y2="322"/>
+  <line x1="120" y1="0" x2="118" y2="400"/>
+  <line x1="320" y1="0" x2="322" y2="400"/>
+  <line x1="500" y1="0" x2="502" y2="400"/>
+</g>
+
+<!-- Ambient blue light -->
+<ellipse cx="300" cy="200" rx="280" ry="160" fill="#0066ff" opacity="0.05" filter="url(#bigGlow)"/>
+
+<!-- Wall shadow behind cabinet -->
+<rect x="196" y="84" width="208" height="238" rx="4" fill="#000" opacity="0.45" filter="url(#wallShadow)"/>
+
+<!-- Main wall-mount cabinet (horizontal orientation) -->
+<g>
+  <!-- Body -->
+  <rect x="190" y="80" width="220" height="230" rx="4" fill="url(#cab)" stroke="#4a5878" stroke-width="1"/>
+  
+  <!-- Door frame -->
+  <rect x="198" y="88" width="204" height="214" rx="3" fill="#1a2236" stroke="#0f1525" stroke-width="0.5"/>
+  
+  <!-- Glass/ventilation panel -->
+  <rect x="210" y="100" width="180" height="130" rx="2" fill="#0a0e1a" stroke="#2a3450" stroke-width="0.5" opacity="0.9"/>
+  
+  <!-- Inner rack visible through glass -->
+  <g opacity="0.55">
+    <!-- Rack rails -->
+    <rect x="218" y="110" width="2" height="110" fill="#4a5878"/>
+    <rect x="380" y="110" width="2" height="110" fill="#4a5878"/>
+    
+    <!-- Server units inside -->
+    <rect x="222" y="112" width="156" height="8" rx="0.5" fill="#0c1228"/>
+    <rect x="226" y="116" width="40" height="1" fill="#0088ff" filter="url(#glow)"/>
+    <circle cx="370" cy="116" r="1" fill="#00ff88" filter="url(#glow)"/>
+    
+    <rect x="222" y="122" width="156" height="12" rx="0.5" fill="#0a0e1a"/>
+    <g fill="#0088ff"><rect x="226" y="126" width="2" height="3"/><rect x="231" y="126" width="2" height="3"/>
+    <rect x="236" y="126" width="2" height="3"/><rect x="241" y="126" width="2" height="3"/>
+    <rect x="246" y="126" width="2" height="3"/><rect x="251" y="126" width="2" height="3"/>
+    <rect x="256" y="126" width="2" height="3"/><rect x="261" y="126" width="2" height="3"/>
+    <rect x="266" y="126" width="2" height="3"/><rect x="271" y="126" width="2" height="3"/></g>
+    
+    <rect x="222" y="136" width="156" height="18" rx="0.5" fill="#0c1228"/>
+    <rect x="226" y="140" width="50" height="2" fill="#00aaff" filter="url(#glow)"/>
+    <g fill="#1a2236"><rect x="320" y="138" width="10" height="14" rx="0.5"/>
+    <rect x="332" y="138" width="10" height="14" rx="0.5"/>
+    <rect x="344" y="138" width="10" height="14" rx="0.5"/>
+    <rect x="356" y="138" width="10" height="14" rx="0.5"/></g>
+    <circle cx="325" cy="145" r="0.8" fill="#00ff88"/>
+    <circle cx="337" cy="145" r="0.8" fill="#00ff88"/>
+    <circle cx="349" cy="145" r="0.8" fill="#00ff88"/>
+    <circle cx="361" cy="145" r="0.8" fill="#ffaa00"/>
+    
+    <rect x="222" y="156" width="156" height="8" rx="0.5" fill="#080c18"/>
+    
+    <rect x="222" y="166" width="156" height="14" rx="0.5" fill="#0c1228"/>
+    <rect x="226" y="170" width="60" height="1.5" fill="#00ccff" filter="url(#glow)"/>
+    <circle cx="368" cy="173" r="1" fill="#0088ff" filter="url(#glow)"/>
+    <circle cx="373" cy="173" r="1" fill="#0088ff" filter="url(#glow)"/>
+    
+    <rect x="222" y="182" width="156" height="12" rx="0.5" fill="#0a0e1a"/>
+    <g fill="#00aaff"><rect x="226" y="186" width="2" height="3"/><rect x="231" y="186" width="2" height="3"/>
+    <rect x="236" y="186" width="2" height="3"/><rect x="241" y="186" width="2" height="3"/>
+    <rect x="246" y="186" width="2" height="3"/><rect x="251" y="186" width="2" height="3"/>
+    <rect x="256" y="186" width="2" height="3"/><rect x="261" y="186" width="2" height="3"/></g>
+    
+    <rect x="222" y="196" width="156" height="20" rx="0.5" fill="#0c1228"/>
+    <rect x="226" y="200" width="40" height="1.5" fill="#0088ff" filter="url(#glow)"/>
+    <g stroke="#2a3450" stroke-width="0.3" fill="#080c18">
+      <rect x="280" y="200" width="4" height="14" rx="0.3"/>
+      <rect x="286" y="200" width="4" height="14" rx="0.3"/>
+      <rect x="292" y="200" width="4" height="14" rx="0.3"/>
+      <rect x="298" y="200" width="4" height="14" rx="0.3"/>
+    </g>
+  </g>
+  
+  <!-- Brand plate area (below glass) -->
+  <rect x="210" y="240" width="180" height="40" rx="2" fill="#151c30" stroke="#2a3450" stroke-width="0.5"/>
+  <rect x="222" y="254" width="40" height="14" rx="1" fill="#E8500A" opacity="0.85"/>
+  <rect x="270" y="256" width="70" height="2" fill="#4a5878" opacity="0.6"/>
+  <rect x="270" y="261" width="50" height="2" fill="#4a5878" opacity="0.4"/>
+  <rect x="270" y="266" width="90" height="1.5" fill="#4a5878" opacity="0.3"/>
+  
+  <!-- Status LEDs at bottom -->
+  <rect x="210" y="283" width="180" height="14" rx="1" fill="#0a0e1a" stroke="#2a3450" stroke-width="0.3"/>
+  <circle cx="222" cy="290" r="2" fill="#00ff88" filter="url(#glow)"/>
+  <circle cx="235" cy="290" r="2" fill="#00aaff" filter="url(#glow)"/>
+  <circle cx="248" cy="290" r="2" fill="#0066ff" filter="url(#glow)"/>
+  
+  <!-- Lock -->
+  <circle cx="380" cy="290" r="4" fill="#3a4868" stroke="#5a6a8a" stroke-width="0.5"/>
+  <circle cx="380" cy="290" r="1.5" fill="#1a2236"/>
+  
+  <!-- Hinges on left -->
+  <rect x="187" y="100" width="6" height="22" rx="1" fill="#2a3450" stroke="#4a5878" stroke-width="0.5"/>
+  <rect x="187" y="270" width="6" height="22" rx="1" fill="#2a3450" stroke="#4a5878" stroke-width="0.5"/>
+  
+  <!-- Wall mount brackets (top corners) -->
+  <rect x="190" y="78" width="40" height="6" rx="1" fill="#3a4868" opacity="0.7"/>
+  <rect x="370" y="78" width="40" height="6" rx="1" fill="#3a4868" opacity="0.7"/>
+  
+  <!-- Top LED strip -->
+  <rect x="190" y="80" width="220" height="1.5" fill="#0088ff" opacity="0.5" filter="url(#glow)"/>
+</g>
+
+<!-- Cable conduits coming from top -->
+<g opacity="0.6">
+  <rect x="260" y="0" width="8" height="80" rx="2" fill="#1a2236" stroke="#2a3450" stroke-width="0.5"/>
+  <rect x="332" y="0" width="8" height="80" rx="2" fill="#1a2236" stroke="#2a3450" stroke-width="0.5"/>
+</g>
+
+<!-- Mounting screws -->
+<circle cx="210" cy="81" r="1.5" fill="#4a5878"/>
+<circle cx="390" cy="81" r="1.5" fill="#4a5878"/>
+<circle cx="210" cy="309" r="1.5" fill="#4a5878"/>
+<circle cx="390" cy="309" r="1.5" fill="#4a5878"/>
+</svg>

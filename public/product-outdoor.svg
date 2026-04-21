@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+<defs>
+<linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0a1530"/><stop offset="100%" stop-color="#1a2540"/></linearGradient>
+<linearGradient id="ground" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0a0e1a"/><stop offset="100%" stop-color="#050810"/></linearGradient>
+<linearGradient id="cab" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#2a3550"/><stop offset="50%" stop-color="#3e4c70"/><stop offset="100%" stop-color="#1f2942"/></linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="1.5"/></filter>
+<filter id="bigGlow"><feGaussianBlur stdDeviation="20"/></filter>
+</defs>
+
+<!-- Sky gradient -->
+<rect width="600" height="260" fill="url(#sky)"/>
+<!-- Ground -->
+<rect y="260" width="600" height="140" fill="url(#ground)"/>
+<!-- Horizon line -->
+<line x1="0" y1="260" x2="600" y2="260" stroke="#4a5878" stroke-width="0.5" opacity="0.3"/>
+
+<!-- Stars -->
+<g fill="#ffffff" opacity="0.5">
+  <circle cx="80" cy="40" r="0.8"/><circle cx="140" cy="25" r="0.6"/><circle cx="220" cy="55" r="0.8"/>
+  <circle cx="340" cy="30" r="0.6"/><circle cx="420" cy="45" r="0.8"/><circle cx="510" cy="25" r="0.6"/>
+  <circle cx="60" cy="90" r="0.5"/><circle cx="560" cy="90" r="0.5"/>
+</g>
+
+<!-- Distant telecom tower silhouette -->
+<g opacity="0.35" fill="#1a2540">
+  <polygon points="480,260 490,130 495,130 505,260"/>
+  <rect x="487" y="155" width="11" height="2"/>
+  <rect x="485" y="175" width="15" height="2"/>
+  <rect x="483" y="200" width="19" height="2"/>
+  <!-- Blinking top light -->
+  <circle cx="492" cy="126" r="2" fill="#ff4444" filter="url(#glow)" opacity="0.8"/>
+</g>
+
+<!-- Ambient glow on ground -->
+<ellipse cx="280" cy="380" rx="200" ry="20" fill="#0088ff" opacity="0.1" filter="url(#bigGlow)"/>
+
+<!-- Concrete base/plinth -->
+<rect x="175" y="340" width="230" height="20" rx="1" fill="#1a1f2e" stroke="#2a3040" stroke-width="0.5"/>
+<rect x="170" y="355" width="240" height="8" rx="1" fill="#12172a"/>
+
+<!-- Main outdoor cabinet -->
+<g>
+  <!-- Roof (slightly slanted for rain runoff) -->
+  <polygon points="175,80 425,80 420,92 180,92" fill="#1a2236" stroke="#3a4868" stroke-width="0.5"/>
+  <polygon points="180,92 420,92 418,100 182,100" fill="#2a3450"/>
+  
+  <!-- Main body -->
+  <rect x="180" y="100" width="240" height="240" rx="2" fill="url(#cab)" stroke="#4a5878" stroke-width="1"/>
+  
+  <!-- Double door panel separation -->
+  <line x1="300" y1="105" x2="300" y2="335" stroke="#1a2236" stroke-width="1"/>
+  
+  <!-- Left door -->
+  <rect x="188" y="108" width="108" height="224" rx="2" fill="#1f2942" stroke="#0f1525" stroke-width="0.5"/>
+  
+  <!-- Ventilation grille top -->
+  <rect x="198" y="118" width="88" height="40" rx="1" fill="#0a0e1a" stroke="#2a3450" stroke-width="0.3"/>
+  <g stroke="#2a3450" stroke-width="0.4" fill="none">
+    <line x1="198" y1="124" x2="286" y2="124"/>
+    <line x1="198" y1="130" x2="286" y2="130"/>
+    <line x1="198" y1="136" x2="286" y2="136"/>
+    <line x1="198" y1="142" x2="286" y2="142"/>
+    <line x1="198" y1="148" x2="286" y2="148"/>
+    <line x1="198" y1="154" x2="286" y2="154"/>
+  </g>
+  
+  <!-- Brand plate -->
+  <rect x="198" y="168" width="88" height="45" rx="1" fill="#151c30" stroke="#2a3450" stroke-width="0.5"/>
+  <rect x="206" y="180" width="32" height="12" rx="1" fill="#E8500A" opacity="0.85"/>
+  <rect x="206" y="198" width="60" height="1.5" fill="#4a5878" opacity="0.5"/>
+  <rect x="206" y="204" width="40" height="1.5" fill="#4a5878" opacity="0.4"/>
+  
+  <!-- Middle section - solid -->
+  <rect x="198" y="223" width="88" height="30" rx="1" fill="#1a2236" stroke="#2a3450" stroke-width="0.3"/>
+  
+  <!-- Ventilation grille bottom -->
+  <rect x="198" y="263" width="88" height="55" rx="1" fill="#0a0e1a" stroke="#2a3450" stroke-width="0.3"/>
+  <g stroke="#2a3450" stroke-width="0.4" fill="none">
+    <line x1="198" y1="269" x2="286" y2="269"/>
+    <line x1="198" y1="275" x2="286" y2="275"/>
+    <line x1="198" y1="281" x2="286" y2="281"/>
+    <line x1="198" y1="287" x2="286" y2="287"/>
+    <line x1="198" y1="293" x2="286" y2="293"/>
+    <line x1="198" y1="299" x2="286" y2="299"/>
+    <line x1="198" y1="305" x2="286" y2="305"/>
+    <line x1="198" y1="311" x2="286" y2="311"/>
+  </g>
+  
+  <!-- Left door lock -->
+  <circle cx="280" cy="220" r="5" fill="#3a4868" stroke="#5a6a8a" stroke-width="0.5"/>
+  <circle cx="280" cy="220" r="2" fill="#1a2236"/>
+  <rect x="278" y="218" width="4" height="1" fill="#5a6a8a"/>
+  
+  <!-- Handle on left door -->
+  <rect x="274" y="230" width="14" height="40" rx="2" fill="#5a6a8a" stroke="#7a8aaa" stroke-width="0.5"/>
+  
+  <!-- Right door -->
+  <rect x="304" y="108" width="108" height="224" rx="2" fill="#1f2942" stroke="#0f1525" stroke-width="0.5"/>
+  
+  <!-- Ventilation grille top -->
+  <rect x="314" y="118" width="88" height="40" rx="1" fill="#0a0e1a" stroke="#2a3450" stroke-width="0.3"/>
+  <g stroke="#2a3450" stroke-width="0.4" fill="none">
+    <line x1="314" y1="124" x2="402" y2="124"/>
+    <line x1="314" y1="130" x2="402" y2="130"/>
+    <line x1="314" y1="136" x2="402" y2="136"/>
+    <line x1="314" y1="142" x2="402" y2="142"/>
+    <line x1="314" y1="148" x2="402" y2="148"/>
+    <line x1="314" y1="154" x2="402" y2="154"/>
+  </g>
+  
+  <!-- Info label/warning -->
+  <rect x="314" y="168" width="88" height="30" rx="1" fill="#151c30" stroke="#2a3450" stroke-width="0.5"/>
+  <text x="358" y="180" font-family="sans-serif" font-size="6" text-anchor="middle" fill="#ffcc00" opacity="0.9">⚠ HIGH VOLTAGE</text>
+  <text x="358" y="190" font-family="sans-serif" font-size="5" text-anchor="middle" fill="#8a95b0">DO NOT OPEN</text>
+  
+  <!-- Status indicators panel -->
+  <rect x="314" y="205" width="88" height="35" rx="1" fill="#0a0e1a" stroke="#2a3450" stroke-width="0.5"/>
+  <circle cx="326" cy="215" r="2.5" fill="#00ff88" filter="url(#glow)"/>
+  <text x="334" y="218" font-family="monospace" font-size="5" fill="#4a5878">POWER</text>
+  <circle cx="326" cy="225" r="2.5" fill="#00aaff" filter="url(#glow)"/>
+  <text x="334" y="228" font-family="monospace" font-size="5" fill="#4a5878">NET</text>
+  <circle cx="326" cy="235" r="2.5" fill="#0066ff" filter="url(#glow)"/>
+  <text x="334" y="238" font-family="monospace" font-size="5" fill="#4a5878">HEAT</text>
+  
+  <!-- Middle section -->
+  <rect x="314" y="245" width="88" height="15" rx="1" fill="#1a2236" stroke="#2a3450" stroke-width="0.3"/>
+  
+  <!-- Ventilation grille bottom right -->
+  <rect x="314" y="263" width="88" height="55" rx="1" fill="#0a0e1a" stroke="#2a3450" stroke-width="0.3"/>
+  <g stroke="#2a3450" stroke-width="0.4" fill="none">
+    <line x1="314" y1="269" x2="402" y2="269"/>
+    <line x1="314" y1="275" x2="402" y2="275"/>
+    <line x1="314" y1="281" x2="402" y2="281"/>
+    <line x1="314" y1="287" x2="402" y2="287"/>
+    <line x1="314" y1="293" x2="402" y2="293"/>
+    <line x1="314" y1="299" x2="402" y2="299"/>
+    <line x1="314" y1="305" x2="402" y2="305"/>
+    <line x1="314" y1="311" x2="402" y2="311"/>
+  </g>
+  
+  <!-- Top edge LED strip -->
+  <rect x="180" y="100" width="240" height="1.5" fill="#0088ff" opacity="0.4" filter="url(#glow)"/>
+</g>
+
+<!-- Cable conduits going underground -->
+<g opacity="0.7">
+  <rect x="195" y="340" width="8" height="20" rx="1" fill="#1a1f2e"/>
+  <rect x="210" y="340" width="8" height="20" rx="1" fill="#1a1f2e"/>
+  <rect x="380" y="340" width="8" height="20" rx="1" fill="#1a1f2e"/>
+  <rect x="395" y="340" width="8" height="20" rx="1" fill="#1a1f2e"/>
+</g>
+
+<!-- Distant landscape hint -->
+<g opacity="0.2" stroke="#3a4868" stroke-width="0.5" fill="none">
+  <path d="M 0 260 L 40 252 L 80 258 L 120 250 L 160 256 L 180 260"/>
+  <path d="M 420 260 L 450 254 L 475 258 L 500 252 L 540 256 L 600 260"/>
+</g>
+</svg>
