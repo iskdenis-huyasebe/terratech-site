@@ -72,18 +72,36 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right — industrial photo */}
+          {/* Right — data center photo */}
           <div className="hidden lg:block relative h-[580px] rounded-2xl overflow-hidden">
+            {/* Primary: real data center aisle with blue lighting — Taylor Vick, Unsplash free license */}
             <img
-              src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=800&q=80"
-              alt="Industrial automation cabinets"
+              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=85"
+              alt="Modern data center server racks"
               className="w-full h-full object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=85';
+              }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/80 via-transparent to-transparent"></div>
+            {/* Blue tint overlay to match brand dark theme */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/85 via-[#0A1628]/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/30 to-transparent"></div>
+
+            {/* Top badge */}
+            <div className="absolute top-5 right-5">
+              <span className="text-xs font-semibold px-3 py-1.5 rounded-full bg-[#E8500A]/90 backdrop-blur-sm text-white">
+                {locale === 'ru' ? 'Поставка под ключ' : 'Turnkey Supply'}
+              </span>
+            </div>
+
+            {/* Bottom brands */}
             <div className="absolute bottom-6 left-6 right-6">
-              <div className="flex flex-wrap gap-3">
+              <p className="text-white/40 text-xs uppercase tracking-widest mb-3 font-semibold">
+                {locale === 'ru' ? 'Партнёры' : 'Partners'}
+              </p>
+              <div className="flex flex-wrap gap-2">
                 {['Rittal', 'Legrand', 'Phoenix Contact', 'ZPAS', 'Weiss', 'Hitec'].map((brand) => (
-                  <span key={brand} className="text-xs font-semibold px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-white/80 border border-white/20">
+                  <span key={brand} className="text-xs font-semibold px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-white/80 border border-white/15">
                     {brand}
                   </span>
                 ))}

@@ -37,7 +37,7 @@ const products = [
     brands: 'Weiss · Rittal',
     specs: ['до 1500 кг/м²', 'Высота 150–1000мм', 'Антистатика', 'Пожаростойкость'],
     specsEn: ['up to 1500 kg/m²', 'Height 150–1000mm', 'Anti-static', 'Fire resistant'],
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80',
     color: '#065F46',
     bg: '#ECFDF5',
   },
