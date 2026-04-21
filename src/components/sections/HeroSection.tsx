@@ -72,24 +72,20 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right — data center photo */}
+          {/* Right — data center illustration */}
           <div className="hidden lg:block relative h-[580px] rounded-2xl overflow-hidden">
-            {/* Primary: real data center aisle with blue lighting — Taylor Vick, Unsplash free license */}
             <img
-              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=85"
-              alt="Modern data center server racks"
+              src="/datacenter-hero.svg"
+              alt="Modern data center server racks with blue lighting"
               className="w-full h-full object-cover"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=85';
-              }}
             />
-            {/* Blue tint overlay to match brand dark theme */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/85 via-[#0A1628]/20 to-transparent"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/30 to-transparent"></div>
+            {/* Subtle overlay to blend with dark background */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/70 via-transparent to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/40 to-transparent"></div>
 
             {/* Top badge */}
             <div className="absolute top-5 right-5">
-              <span className="text-xs font-semibold px-3 py-1.5 rounded-full bg-[#E8500A]/90 backdrop-blur-sm text-white">
+              <span className="text-xs font-semibold px-3 py-1.5 rounded-full bg-[#E8500A]/90 backdrop-blur-sm text-white border border-[#E8500A]/30">
                 {locale === 'ru' ? 'Поставка под ключ' : 'Turnkey Supply'}
               </span>
             </div>
