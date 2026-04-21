@@ -75,7 +75,7 @@ export default function HeroSection() {
           {/* Right — industrial photo */}
           <div className="hidden lg:block relative h-[580px] rounded-2xl overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1531492746076-161ca9bcad58?w=800&q=80"
+              src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=800&q=80"
               alt="Industrial automation cabinets"
               className="w-full h-full object-cover"
             />
