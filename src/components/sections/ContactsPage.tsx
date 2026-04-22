@@ -50,6 +50,7 @@ export default function ContactsPage() {
   const isRu = locale === 'ru';
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', message: '' });
+  const [honeypot, setHoneypot] = useState(''); // bot trap
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -57,6 +58,8 @@ export default function ContactsPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Honeypot check — bots fill hidden fields, humans don't
+    if (honeypot) return;
     setStatus('sending');
     try {
       const res = await fetch('/api/contact', {
@@ -119,6 +122,17 @@ export default function ContactsPage() {
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  {/* Honeypot — hidden from humans, bots fill it */}
+                  <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} aria-hidden="true">
+                    <input
+                      type="text"
+                      name="website"
+                      value={honeypot}
+                      onChange={e => setHoneypot(e.target.value)}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-xs font-semibold uppercase tracking-wider text-[#0A1628]/60 mb-2">

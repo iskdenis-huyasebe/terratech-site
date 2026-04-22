@@ -7,6 +7,7 @@ export default function ContactForm() {
   const locale = useLocale();
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', message: '' });
+  const [honeypot, setHoneypot] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -14,6 +15,7 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (honeypot) return;
     setStatus('sending');
     try {
       const res = await fetch('/api/contact', {
@@ -100,6 +102,10 @@ export default function ContactForm() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Honeypot — invisible to humans, bots fill it */}
+                <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} aria-hidden="true">
+                  <input type="text" name="website" value={honeypot} onChange={e => setHoneypot(e.target.value)} tabIndex={-1} autoComplete="off" />
+                </div>
                 <div className="grid grid-cols-2 gap-4">
                   <input name="name" value={form.name} onChange={handleChange} required placeholder={t('name')} className={inputClass} />
                   <input name="company" value={form.company} onChange={handleChange} placeholder={t('company')} className={inputClass} />
