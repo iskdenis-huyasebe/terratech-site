@@ -46,7 +46,7 @@ const products: Product[] = [
     specsEn: ['Width: 600–1200 mm', 'Height: 1200–2200 mm', 'Depth: 400–800 mm', 'IP55 / IP66', 'RAL 7035 / RAL 9005'],
     category: 'cabinets',
     url: 'https://www.rittal.com/lt-en/products/enclosures/vx25/',
-    image: '/product-cabinet.svg',
+    image: '/rittal/rittal-vx25.jpg',
     highlight: true,
   },
   {
@@ -63,7 +63,7 @@ const products: Product[] = [
     specsEn: ['Width: 600–1800 mm', 'IP55 / IP66 / NEMA 4', 'RAL 7035', 'Stainless steel option', 'IEC 62208'],
     category: 'cabinets',
     url: 'https://www.rittal.com/lt-en/products/enclosures/vx25/',
-    image: '/product-cabinet.svg',
+    image: '/rittal/rittal-vx25.jpg',
   },
   {
     id: 'rittal-ax',
@@ -79,7 +79,7 @@ const products: Product[] = [
     specsEn: ['300×210 — 800×600 mm', 'IP66 / NEMA 4X', 'UL / cUL', 'RAL 7035', '180° hinges'],
     category: 'cabinets',
     url: 'https://www.rittal.com/lt-en/products/enclosures/ax/',
-    image: '/product-wallcab.svg',
+    image: '/rittal/rittal-ax.jpg',
   },
   {
     id: 'rittal-vx-it',
@@ -95,7 +95,7 @@ const products: Product[] = [
     specsEn: ['24U / 42U / 47U', 'Width 800 mm', 'Depth 800–1200 mm', 'Load up to 1500 kg', 'UL / cUL'],
     category: 'racks',
     url: 'https://www.rittal.com/lt-en/products/it-infrastructure/server-racks/',
-    image: '/product-rack.svg',
+    image: '/rittal/rittal-vx-it.jpg',
     highlight: true,
   },
   {
@@ -112,7 +112,7 @@ const products: Product[] = [
     specsEn: ['Up to 25 kW cooling', 'EC fan technology', 'R-410A refrigerant', 'SNMP / RiZone', 'IP 20'],
     category: 'climate',
     url: 'https://www.rittal.com/lt-en/products/it-infrastructure/cooling/',
-    image: '/product-cooling.svg',
+    image: '/rittal/rittal-vx-it.jpg',
   },
   {
     id: 'rittal-blue-e-plus',
@@ -128,7 +128,7 @@ const products: Product[] = [
     specsEn: ['1300–5800 W', 'Up to 75% more efficient', 'Wall / roof mount', 'IoT / Rittal Connect', 'EN 14511'],
     category: 'climate',
     url: 'https://www.rittal.com/lt-en/products/climate-control/',
-    image: '/product-cooling.svg',
+    image: '/rittal/rittal-toptherm.jpg',
   },
   // ── RITTAL — Промышленные шкафы ─────────────────────────
   {
@@ -145,7 +145,7 @@ const products: Product[] = [
     specsEn: ['300×210 — 800×600 mm', 'IP66 / NEMA 4X', 'Stainless steel 1.4301', 'UL / cUL', 'RAL 7035 / polished'],
     category: 'cabinets',
     url: 'https://www.rittal.com/lt-en/products/enclosures/ax/',
-    image: '/product-wallcab.svg',
+    image: '/rittal/rittal-ax.jpg',
   },
   {
     id: 'rittal-outdoor',
@@ -161,7 +161,7 @@ const products: Product[] = [
     specsEn: ['AlMg3 aluminium', 'IP 55 / NEMA 3R', 'RAL 7035, UV-resistant', 'Roof projection', 'Width 600–1200 mm'],
     category: 'cabinets',
     url: 'https://www.rittal.com/lt-en/products/enclosures/outdoor/',
-    image: '/product-outdoor.svg',
+    image: '/rittal/rittal-outdoor.jpg',
   },
   {
     id: 'rittal-hd',
@@ -194,7 +194,7 @@ const products: Product[] = [
     specsEn: ['300–2500 W', 'IP34 external / IP54 internal', 'Nano-coated condenser', 'RAL 7035 / SS', 'DIN EN 14511'],
     category: 'climate',
     url: 'https://www.rittal.com/lt-en/products/climate-control/cooling-units/',
-    image: '/product-cooling.svg',
+    image: '/rittal/rittal-toptherm.jpg',
     highlight: true,
   },
   {
@@ -211,7 +211,7 @@ const products: Product[] = [
     specsEn: ['500–4000 W', 'IP34 external / IP54 internal', 'Roof mounting', 'Nano-coated condenser', 'DIN EN 14511'],
     category: 'climate',
     url: 'https://www.rittal.com/lt-en/products/climate-control/cooling-units/',
-    image: '/product-cooling.svg',
+    image: '/rittal/rittal-toptherm.jpg',
   },
   {
     id: 'rittal-outdoor-cooling',
@@ -227,7 +227,7 @@ const products: Product[] = [
     specsEn: ['IP 56 / UL Type 4/3R/12', 'AlMg3 aluminium', 'Heat pump technology', 'Up to 75% energy savings', 'RAL 7035 UV-resistant'],
     category: 'climate',
     url: 'https://www.rittal.com/lt-en/products/climate-control/cooling-units/',
-    image: '/product-cooling.svg',
+    image: '/rittal/rittal-blue-eplus-outdoor.jpg',
   },
   {
     id: 'rittal-fan-filter',
@@ -259,7 +259,7 @@ const products: Product[] = [
     specsEn: ['10–150 W', 'IP 20', 'Anodised aluminium', 'Protection class II', 'DIN rail / direct mount'],
     category: 'climate',
     url: 'https://www.rittal.com/lt-en/products/climate-control/',
-    image: '/product-cooling.svg',
+    image: '/rittal/rittal-heater.jpg',
   },
 
   // ── ZPAS ─────────────────────────────────────────────────
