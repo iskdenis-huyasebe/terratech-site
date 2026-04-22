@@ -78,7 +78,7 @@ export default function ContactsPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="bg-[#0A1628] pt-32 pb-16 relative overflow-hidden">
+      <section className="bg-[#0A1628] pt-24 pb-12 md:pt-32 md:pb-16 relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -108,7 +108,7 @@ export default function ContactsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {/* ── FORM ── */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-2xl border border-[#E2DDD6] p-8 md:p-10">
+              <div className="bg-white rounded-2xl border border-[#E2DDD6] p-5 md:p-10">
                 <h2 className="font-display text-2xl md:text-3xl text-[#0A1628] mb-2">
                   {isRu ? 'Запросить КП' : 'Request Quote'}
                 </h2>

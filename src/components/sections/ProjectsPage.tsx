@@ -200,7 +200,7 @@ export default function ProjectsPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="bg-[#0A1628] pt-32 pb-16 relative overflow-hidden">
+      <section className="bg-[#0A1628] pt-24 pb-12 md:pt-32 md:pb-16 relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -223,7 +223,7 @@ export default function ProjectsPage() {
           </p>
 
           {/* Stats bar */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 pt-8 border-t border-white/10">
             {[
               { v: '50+',  l: isRu ? 'проектов реализовано' : 'projects delivered' },
               { v: '6',    l: isRu ? 'стран присутствия'    : 'countries served' },
@@ -263,7 +263,7 @@ export default function ProjectsPage() {
       {/* ── Projects grid ── */}
       <section className="section bg-[#F7F6F3]">
         <div className="container-main">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
             {filtered.map(project => (
               <article
                 key={project.id}

@@ -13,7 +13,10 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 20);
+    const handler = () => {
+      setScrolled(window.scrollY > 20);
+      if (window.scrollY > 20) setMobileOpen(false);
+    };
     window.addEventListener('scroll', handler);
     return () => window.removeEventListener('scroll', handler);
   }, []);
@@ -99,18 +102,27 @@ export default function Header() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="md:hidden bg-white border-t border-[#E2DDD6] py-4 space-y-1">
+          <div className="md:hidden bg-white/98 backdrop-blur-md border-t border-[#E2DDD6] py-3 space-y-0.5 shadow-xl">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}
-                className="block px-4 py-3 text-[#0A1628] font-medium hover:text-[#E8500A] hover:bg-[#F7F6F3] rounded">
+                className={clsx(
+                  'flex items-center px-4 py-3.5 text-sm font-medium transition-colors rounded-lg mx-2',
+                  pathname === link.href
+                    ? 'text-[#E8500A] bg-[#E8500A]/5'
+                    : 'text-[#0A1628] hover:text-[#E8500A] hover:bg-[#F7F6F3]'
+                )}>
                 {link.label}
               </Link>
             ))}
-            <div className="px-4 pt-3 flex items-center gap-3">
-              <Link href={switchPath} className="text-sm font-semibold border border-[#E2DDD6] px-3 py-2 rounded">
+            <div className="px-4 pt-3 pb-1 flex items-center gap-3 border-t border-[#E2DDD6] mt-2">
+              <Link href={switchPath}
+                onClick={() => setMobileOpen(false)}
+                className="text-sm font-semibold border border-[#E2DDD6] px-3 py-2 rounded text-[#0A1628] hover:border-[#E8500A] hover:text-[#E8500A] transition-colors">
                 {otherLocale.toUpperCase()}
               </Link>
-              <Link href={`/${locale}/contacts`} className="btn-primary text-sm py-2 px-4 flex-1 text-center justify-center">
+              <Link href={`/${locale}/contacts`}
+                onClick={() => setMobileOpen(false)}
+                className="btn-primary text-sm py-2 px-4 flex-1 text-center justify-center">
                 {t('request')}
               </Link>
             </div>

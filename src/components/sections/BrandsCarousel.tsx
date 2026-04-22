@@ -104,7 +104,7 @@ export default function BrandsCarousel() {
     <section className="section-sm bg-[#F7F6F3] border-y border-[#E2DDD6]">
       <div className="container-main">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 md:mb-10">
           <div>
             <p className="text-[#E8500A] text-xs font-semibold uppercase tracking-widest mb-2">
               {isRu ? 'Официальный поставщик' : 'Authorized Supplier'}

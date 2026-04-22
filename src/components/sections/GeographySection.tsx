@@ -20,7 +20,7 @@ export default function GeographySection() {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#E8500A] opacity-[0.04] rounded-full blur-[150px]"></div>
 
       <div className="container-main relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-14">
           <div>
             <p className="text-[#E8500A] text-xs font-semibold uppercase tracking-widest mb-3">
               {locale === 'ru' ? 'Поставки' : 'Deliveries'}
@@ -34,9 +34,9 @@ export default function GeographySection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-10 md:mb-12">
           {markets.map((market) => (
-            <div key={market.name} className="bg-white/5 border border-white/10 rounded-xl p-5 text-center hover:bg-white/8 hover:border-[#E8500A]/30 transition-all">
+            <div key={market.name} className="bg-white/5 border border-white/10 rounded-xl p-4 md:p-5 text-center hover:bg-white/8 hover:border-[#E8500A]/30 transition-all">
               <span className="text-3xl mb-3 block">{market.flag}</span>
               <p className="text-white font-semibold text-sm mb-1">
                 {locale === 'ru' ? market.name : market.nameEn}
@@ -47,7 +47,7 @@ export default function GeographySection() {
         </div>
 
         {/* CTA */}
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="font-display text-2xl md:text-3xl text-white mb-2">
               {locale === 'ru' ? 'Нужна поставка в вашу страну?' : 'Need delivery to your country?'}

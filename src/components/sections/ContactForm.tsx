@@ -37,7 +37,7 @@ export default function ContactForm() {
   return (
     <section className="section bg-white" id="contact">
       <div className="container-main">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Left info */}
           <div>
             <p className="text-[#E8500A] text-xs font-semibold uppercase tracking-widest mb-3">
@@ -92,7 +92,7 @@ export default function ContactForm() {
           </div>
 
           {/* Form */}
-          <div className="bg-[#F7F6F3] rounded-2xl p-8">
+          <div className="bg-[#F7F6F3] rounded-2xl p-5 md:p-8">
             {status === 'success' ? (
               <div className="text-center py-12">
                 <div className="text-5xl mb-4">✅</div>

@@ -11,8 +11,13 @@
 html { scroll-behavior: smooth; }
 body { background: #FAFAF8; color: #0A1628; }
 
-.container-main { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
-.section { padding: 96px 0; }
+.container-main { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+@media (min-width: 640px) { .container-main { padding: 0 32px; } }
+@media (min-width: 1024px) { .container-main { padding: 0 40px; } }
+.section { padding: 64px 0; }
+@media (min-width: 768px) { .section { padding: 96px 0; } }
+.section-sm { padding: 48px 0; }
+@media (min-width: 768px) { .section-sm { padding: 64px 0; } }
 
 .btn-primary {
   background: #E8500A;

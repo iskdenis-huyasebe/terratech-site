@@ -55,7 +55,7 @@ export default function WhySection() {
     <section className="section bg-[#0A1628]">
       <div className="container-main">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-14">
           <div>
             <p className="text-[#E8500A] text-xs font-semibold uppercase tracking-widest mb-3">
               {isRu ? 'Наши преимущества' : 'Our Advantages'}
@@ -72,7 +72,7 @@ export default function WhySection() {
         </div>
 
         {/* Reasons grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 mb-10 md:mb-14">
           {reasons.map((r, i) => (
             <div
               key={i}
@@ -91,7 +91,7 @@ export default function WhySection() {
 
         {/* Stats bar */}
         <div className="border-t border-white/10 pt-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {stats.map((s, i) => (
               <div key={i} className="text-center md:text-left">
                 <div className="font-display text-4xl text-white mb-1">{s.value}</div>
@@ -102,7 +102,7 @@ export default function WhySection() {
         </div>
 
         {/* CTA */}
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 bg-white/5 border border-white/10 rounded-2xl p-8">
+        <div className="mt-10 md:mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8">
           <p className="text-white font-display text-2xl md:text-3xl">
             {isRu ? 'Готовы обсудить ваш проект?' : 'Ready to discuss your project?'}
           </p>

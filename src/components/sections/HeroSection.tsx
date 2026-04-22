@@ -18,11 +18,11 @@ export default function HeroSection() {
         <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-[#E8500A] rounded-full opacity-[0.05] blur-[150px]"></div>
       </div>
 
-      <div className="container-main relative z-10" style={{paddingTop: '120px', paddingBottom: '80px'}}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="container-main relative z-10" style={{paddingTop: '100px', paddingBottom: '60px'}}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left — text */}
           <div>
-            <h1 className="font-display text-5xl md:text-6xl xl:text-7xl text-white leading-[1.05] mb-8">
+            <h1 className="font-display text-4xl md:text-5xl xl:text-7xl text-white leading-[1.05] mb-6">
               {locale === 'ru' ? (
                 <>Профессиональное<br />
                 <span className="text-[#E8500A]">оборудование</span><br />
@@ -34,23 +34,23 @@ export default function HeroSection() {
               )}
             </h1>
 
-            <p className="text-white/55 text-lg leading-relaxed mb-10">
+            <p className="text-white/55 text-base leading-relaxed mb-8">
               {t('subtitle')}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-16">
-              <Link href={`/${locale}/contacts`} className="btn-primary text-base">
+            <div className="flex flex-col sm:flex-row gap-3 mb-10">
+              <Link href={`/${locale}/contacts`} className="btn-primary text-sm">
                 {t('cta_primary')}
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
               <Link href={`/${locale}/products`}
-                className="text-base font-semibold inline-flex items-center gap-2 transition-all"
+                className="text-sm font-semibold inline-flex items-center justify-center gap-2 transition-all"
                 style={{
                   border: '1.5px solid rgba(255,255,255,0.4)',
                   color: 'white',
-                  padding: '14px 28px',
+                  padding: '12px 24px',
                   borderRadius: '4px',
                 }}
               >
@@ -58,14 +58,14 @@ export default function HeroSection() {
               </Link>
             </div>
 
-            <div className="flex flex-wrap gap-10">
+            <div className="flex flex-wrap gap-6 sm:gap-10">
               {[
                 { value: t('stat1_value'), label: t('stat1_label') },
                 { value: t('stat2_value'), label: t('stat2_label') },
                 { value: t('stat3_value'), label: t('stat3_label') },
               ].map((stat, i) => (
                 <div key={i} className="flex flex-col">
-                  <span className="font-display text-3xl text-white">{stat.value}</span>
+                  <span className="font-display text-2xl md:text-3xl text-white">{stat.value}</span>
                   <span className="text-white/45 text-sm mt-1">{stat.label}</span>
                 </div>
               ))}

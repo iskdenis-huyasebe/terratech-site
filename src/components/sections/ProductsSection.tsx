@@ -89,7 +89,7 @@ export default function ProductsSection() {
               style={{ background: product.bg }}
             >
               {/* Image — alternating left/right */}
-              <div className={`relative h-56 md:h-auto overflow-hidden ${i % 2 === 1 ? 'md:order-2' : ''}`}>
+              <div className={`relative h-48 md:h-auto overflow-hidden ${i % 2 === 1 ? 'md:order-2' : ''}`}>
                 <img
                   src={product.image}
                   alt={isRu ? product.titleRu : product.titleEn}
@@ -108,7 +108,7 @@ export default function ProductsSection() {
               </div>
 
               {/* Content */}
-              <div className={`p-8 md:p-10 flex flex-col justify-center ${i % 2 === 1 ? 'md:order-1' : ''}`}>
+              <div className={`p-5 md:p-10 flex flex-col justify-center ${i % 2 === 1 ? 'md:order-1' : ''}`}>
                 <h3 className="font-display text-2xl md:text-3xl text-[#0A1628] mb-3">
                   {isRu ? product.titleRu : product.titleEn}
                 </h3>

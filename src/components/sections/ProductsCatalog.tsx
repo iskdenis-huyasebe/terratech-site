@@ -310,15 +310,15 @@ export default function ProductsCatalog() {
 
       {/* ── Filters ── */}
       <section className="bg-[#F7F6F3] border-b border-[#E2DDD6] sticky top-[80px] z-40">
-        <div className="container-main py-4">
-          <div className="flex flex-col md:flex-row gap-4 md:items-center justify-between">
+        <div className="container-main py-3">
+          <div className="flex flex-col gap-3">
             {/* Category filters */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5">
               {categories.map(cat => (
                 <button
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
-                  className={`text-xs font-semibold px-4 py-2 rounded-full border transition-all ${
+                  className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition-all ${
                     activeCategory === cat.id
                       ? 'bg-[#0A1628] text-white border-[#0A1628]'
                       : 'bg-white text-[#0A1628]/60 border-[#E2DDD6] hover:border-[#0A1628]/30'
@@ -328,9 +328,8 @@ export default function ProductsCatalog() {
                 </button>
               ))}
             </div>
-
             {/* Brand filters */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5">
               {brands.map(brand => (
                 <button
                   key={brand}
@@ -357,7 +356,7 @@ export default function ProductsCatalog() {
             {isRu ? `Показано: ${filtered.length} позиций` : `Showing: ${filtered.length} items`}
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
             {filtered.map(product => (
               <div
                 key={product.id}
