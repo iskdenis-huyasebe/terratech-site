@@ -96,7 +96,7 @@ export async function POST(req: Request) {
 
       await resend.emails.send({
         from: 'Terratech Website <onboarding@resend.dev>',
-        to: ['info@terradstr.com'],
+        to: ['dkislenko@terradstr.com'],
         replyTo: email,
         subject: `Новая заявка с сайта от ${esc(name)}${company ? ` (${esc(company)})` : ''}`,
         html: `
