@@ -87,7 +87,7 @@ export default function ContactForm() {
                 <div className="w-10 h-10 bg-[#F7F6F3] rounded-lg flex items-center justify-center text-lg flex-shrink-0">✉️</div>
                 <div>
                   <p className="font-semibold text-[#0A1628] text-sm mb-1">Email</p>
-                  <a href="mailto:info@terradstr.com" className="text-[#E8500A] text-sm font-medium hover:underline">info@terradstr.com</a>
+                  <a href="mailto:dkislenko@terradstr.com" className="text-[#E8500A] text-sm font-medium hover:underline">dkislenko@terradstr.com</a>
                 </div>
               </div>
             </div>

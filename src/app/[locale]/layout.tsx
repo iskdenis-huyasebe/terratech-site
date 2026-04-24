@@ -68,7 +68,7 @@ export default async function LocaleLayout({
               "@type": "Organization",
               "name": "Terratech",
               "url": "https://www.terradstr.com",
-              "email": "info@terradstr.com",
+              "email": "dkislenko@terradstr.com",
               "description": "Поставщик профессионального оборудования для IT-инфраструктуры и промышленной автоматизации",
               "foundingDate": "2018",
               "areaServed": ["KZ", "UZ", "GE", "AZ", "AM", "LT", "ES"],

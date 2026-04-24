@@ -11,7 +11,7 @@ const offices = [
     address: 'Airiu 10C, 13282',
     phone: '+370 652 88897',
     phoneHref: '+37065288897',
-    email: 'info@terradstr.com',
+    email: 'dkislenko@terradstr.com',
     flag: '🇱🇹',
     note: 'Главный офис · Европа',
     noteEn: 'Head office · Europe',
@@ -24,7 +24,7 @@ const offices = [
     address: 'Ermita 22, 5-10',
     phone: '+34 641 005 590',
     phoneHref: '+34641005590',
-    email: 'info@terradstr.com',
+    email: 'dkislenko@terradstr.com',
     flag: '🇪🇸',
     note: 'Представительство',
     noteEn: 'Representative office',
@@ -38,7 +38,7 @@ const offices = [
     addressEn: 'Address on request',
     phone: '+7 777 575 5748',
     phoneHref: '+77775755748',
-    email: 'info@terradstr.com',
+    email: 'dkislenko@terradstr.com',
     flag: '🇰🇿',
     note: 'Поставки в Центральную Азию',
     noteEn: 'Central Asia deliveries',
@@ -247,7 +247,7 @@ export default function ContactsPage() {
                         {isRu
                           ? 'Ошибка отправки. Напишите напрямую на '
                           : 'Submission error. Please email us directly at '}
-                        <a href="mailto:info@terradstr.com" className="font-semibold underline">info@terradstr.com</a>
+                        <a href="mailto:dkislenko@terradstr.com" className="font-semibold underline">dkislenko@terradstr.com</a>
                       </p>
                     </div>
                   )}
@@ -267,13 +267,13 @@ export default function ContactsPage() {
                 </h3>
 
                 <div className="space-y-3">
-                  <a href="mailto:info@terradstr.com" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors text-sm group">
+                  <a href="mailto:dkislenko@terradstr.com" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors text-sm group">
                     <span className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-[#E8500A]/20 transition-colors">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </span>
-                    info@terradstr.com
+                    dkislenko@terradstr.com
                   </a>
                   <a href="tel:+37065288897" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors text-sm group">
                     <span className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-[#E8500A]/20 transition-colors">

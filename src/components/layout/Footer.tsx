@@ -21,8 +21,8 @@ export default function Footer() {
               {t('footer.desc')}
             </p>
             <div className="mt-6 flex items-center gap-3">
-              <a href="mailto:info@terradstr.com" className="text-[#E8500A] hover:text-[#FF6B2B] text-sm font-medium transition-colors">
-                info@terradstr.com
+              <a href="mailto:dkislenko@terradstr.com" className="text-[#E8500A] hover:text-[#FF6B2B] text-sm font-medium transition-colors">
+                dkislenko@terradstr.com
               </a>
             </div>
           </div>
