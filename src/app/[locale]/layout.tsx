@@ -17,15 +17,21 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: { default: t('home_title'), template: '%s | Terratech' },
     description: t('home_desc'),
     keywords: [
-      'Rittal Казахстан', 'Rittal Алматы', 'Rittal поставка',
-      'Legrand Казахстан', 'Legrand Алматы', 'Legrand поставка СНГ',
-      'Phoenix Contact Казахстан', 'Phoenix Contact СНГ',
-      'ZPAS Казахстан', 'шкафы управления Казахстан',
-      'промышленное оборудование Казахстан', 'промышленное оборудование Алматы',
-      'шкафы автоматики', 'электрощиты Казахстан', 'электрощиты Алматы',
-      'IT инфраструктура Казахстан', 'серверные стойки Казахстан',
+      // Бренды + страны
+      'Rittal Казахстан', 'Rittal Узбекистан', 'Rittal Киргизия', 'Rittal Азербайджан', 'Rittal Армения', 'Rittal Грузия', 'Rittal Таджикистан', 'Rittal Туркменистан',
+      'Legrand Казахстан', 'Legrand Узбекистан', 'Legrand Киргизия', 'Legrand Азербайджан', 'Legrand Армения', 'Legrand Грузия',
+      'Phoenix Contact Казахстан', 'Phoenix Contact Узбекистан', 'Phoenix Contact Азербайджан',
+      'ZPAS Казахстан', 'ZPAS Узбекистан',
+      // Города
+      'Rittal Алматы', 'Rittal Ташкент', 'Rittal Баку', 'Rittal Бишкек', 'Rittal Ереван', 'Rittal Тбилиси',
+      'Legrand Алматы', 'Legrand Ташкент', 'Legrand Баку',
+      // Продукция
+      'промышленное оборудование Казахстан', 'промышленное оборудование Узбекистан', 'промышленное оборудование СНГ',
+      'шкафы автоматики Казахстан', 'шкафы управления Казахстан', 'электрощиты Казахстан',
+      'серверные стойки Казахстан', 'IT инфраструктура Казахстан',
       'поставка электрооборудования Казахстан', 'поставка электрооборудования СНГ',
-      'Terratech', 'Terratech Казахстан',
+      // Общие
+      'Terratech', 'Terratech Казахстан', 'промышленное оборудование СНГ',
     ],
     authors: [{ name: 'Terratech' }],
     creator: 'Terratech',
@@ -81,7 +87,7 @@ export default async function LocaleLayout({
               "email": "dkislenko@terradstr.com",
               "description": "Поставщик профессионального оборудования для IT-инфраструктуры и промышленной автоматизации",
               "foundingDate": "2018",
-              "areaServed": ["KZ", "UZ", "GE", "AZ", "AM", "LT", "ES"],
+              "areaServed": ["KZ", "UZ", "KG", "AZ", "AM", "GE", "TJ", "TM"],
               "address": [
                 { "@type": "PostalAddress", "streetAddress": "Airiu 10C", "addressLocality": "Vilnius", "addressCountry": "LT" },
                 { "@type": "PostalAddress", "streetAddress": "Ermita 22, 5-10", "addressLocality": "Gandia", "addressCountry": "ES" }

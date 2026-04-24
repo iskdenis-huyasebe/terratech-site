@@ -31,7 +31,7 @@ export default async function Image() {
 
         {/* Tagline */}
         <div style={{ fontSize: 28, color: 'rgba(255,255,255,0.7)', marginBottom: 48, maxWidth: 700 }}>
-          Поставка промышленного оборудования в Казахстан и СНГ
+          Поставка промышленного оборудования в Казахстан, Узбекистан, Азербайджан и СНГ
         </div>
 
         {/* Brands */}
