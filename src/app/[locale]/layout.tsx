@@ -16,7 +16,17 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     metadataBase: new URL('https://www.terradstr.com'),
     title: { default: t('home_title'), template: '%s | Terratech' },
     description: t('home_desc'),
-    keywords: ['Rittal Казахстан', 'Legrand поставка', 'Phoenix Contact СНГ', 'шкафы автоматики', 'промышленное оборудование', 'IT инфраструктура', 'ZPAS', 'Weiss ЦОД', 'Terratech'],
+    keywords: [
+      'Rittal Казахстан', 'Rittal Алматы', 'Rittal поставка',
+      'Legrand Казахстан', 'Legrand Алматы', 'Legrand поставка СНГ',
+      'Phoenix Contact Казахстан', 'Phoenix Contact СНГ',
+      'ZPAS Казахстан', 'шкафы управления Казахстан',
+      'промышленное оборудование Казахстан', 'промышленное оборудование Алматы',
+      'шкафы автоматики', 'электрощиты Казахстан', 'электрощиты Алматы',
+      'IT инфраструктура Казахстан', 'серверные стойки Казахстан',
+      'поставка электрооборудования Казахстан', 'поставка электрооборудования СНГ',
+      'Terratech', 'Terratech Казахстан',
+    ],
     authors: [{ name: 'Terratech' }],
     creator: 'Terratech',
     openGraph: {
