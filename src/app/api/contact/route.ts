@@ -67,12 +67,15 @@ export async function POST(req: Request) {
 
     // Server-side validation
     if (!name || name.length < 2) {
+      console.log('Validation failed: name too short', name);
       return NextResponse.json({ ok: false, error: 'Invalid name' }, { status: 400 });
     }
     if (!isValidEmail(email)) {
+      console.log('Validation failed: invalid email', email);
       return NextResponse.json({ ok: false, error: 'Invalid email' }, { status: 400 });
     }
-    if (!message || message.length < 5) {
+    if (!message || message.length < 2) {
+      console.log('Validation failed: message too short', message);
       return NextResponse.json({ ok: false, error: 'Message too short' }, { status: 400 });
     }
 
