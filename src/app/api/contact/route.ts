@@ -36,7 +36,7 @@ function isValidEmail(email: string): boolean {
 
 // Basic spam keyword check
 function isSpam(text: string): boolean {
-  const spamPatterns = [/\bviagra\b/i, /\bcasino\b/i, /\bcrypto\b/i, /http[s]?:\/\//i, /\bseo\b/i];
+  const spamPatterns = [/\bviagra\b/i, /\bcasino\b/i];
   return spamPatterns.some(p => p.test(text));
 }
 
@@ -55,6 +55,7 @@ export async function POST(req: Request) {
     }
 
     const body = await req.json();
+    console.log('Contact form body:', JSON.stringify(body));
 
     // Sanitize all inputs
     const name    = sanitize(body.name, 100);
