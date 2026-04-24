@@ -24,13 +24,13 @@ export default function HeroSection() {
           <div>
             <h1 className="font-display text-4xl md:text-5xl xl:text-7xl text-white leading-[1.05] mb-6">
               {locale === 'ru' ? (
-                <>Профессиональное<br />
-                <span className="text-[#E8500A]">оборудование</span><br />
-                для IT-инфраструктуры</>
+                <>Ваш надёжный партнёр<br />
+                по поставке <span className="text-[#E8500A]">промышленного<br />
+                оборудования</span></>
               ) : (
-                <>Professional<br />
-                <span className="text-[#E8500A]">Equipment</span><br />
-                for IT Infrastructure</>
+                <>Your reliable partner<br />
+                for <span className="text-[#E8500A]">industrial<br />
+                equipment</span> supply</>
               )}
             </h1>
 
