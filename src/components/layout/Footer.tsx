@@ -7,7 +7,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#0A1628] text-white">
-      <div className="container-main py-12 md:py-16">
+      <div className="container-main" style={{paddingTop: "64px", paddingBottom: "64px"}}>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {/* Brand */}
           <div className="md:col-span-2">
@@ -30,7 +30,7 @@ export default function Footer() {
           {/* Navigation */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">
-              {locale === 'ru' ? 'Навигация' : 'Navigation'}
+              {locale === 'ru' ? 'ÐÐ°Ð²Ð¸Ð³Ð°ÑÐ¸Ñ' : 'Navigation'}
             </h4>
             <ul className="space-y-3">
               {[
@@ -55,7 +55,7 @@ export default function Footer() {
             </h4>
             <div className="space-y-4 text-sm text-white/60">
               <div>
-                <p className="text-white/40 text-xs mb-1">{locale === 'ru' ? 'Литва' : 'Lithuania'}</p>
+                <p className="text-white/40 text-xs mb-1">{locale === 'ru' ? 'ÐÐ¸ÑÐ²Ð°' : 'Lithuania'}</p>
                 <p>Airiu 10C, Vilnius</p>
                 <a href="tel:+37065288897" className="hover:text-white transition-colors">{t('contact.phone_lt')}</a>
               <span className="flex items-center gap-1.5 mt-1"><a href="https://wa.me/37065288897" target="_blank" rel="noopener" title="WhatsApp" className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#25D366] hover:opacity-80 transition-opacity">
@@ -65,13 +65,13 @@ export default function Footer() {
             </a></span>
               </div>
               <div>
-                <p className="text-white/40 text-xs mb-1">{locale === 'ru' ? 'Испания' : 'Spain'}</p>
+                <p className="text-white/40 text-xs mb-1">{locale === 'ru' ? 'ÐÑÐ¿Ð°Ð½Ð¸Ñ' : 'Spain'}</p>
                 <p>Ermita 22, Gandia</p>
                 <a href="tel:+34641005590" className="hover:text-white transition-colors">{t('contact.phone_es')}</a>
               </div>
               <div>
-                <p className="text-white/40 text-xs mb-1">{locale === 'ru' ? 'Казахстан' : 'Kazakhstan'}</p>
-                <p>{locale === 'ru' ? 'ул. Алимжанова 38, Алматы' : '38 Alimzhanova str, Almaty'}</p>
+                <p className="text-white/40 text-xs mb-1">{locale === 'ru' ? 'ÐÐ°Ð·Ð°ÑÑÑÐ°Ð½' : 'Kazakhstan'}</p>
+                <p>{locale === 'ru' ? 'ÑÐ». ÐÐ»Ð¸Ð¼Ð¶Ð°Ð½Ð¾Ð²Ð° 38, ÐÐ»Ð¼Ð°ÑÑ' : '38 Alimzhanova str, Almaty'}</p>
                 <a href="tel:+77775755748" className="hover:text-white transition-colors">{t('contact.phone_kz')}</a>
               <span className="flex items-center gap-1.5 mt-1"><a href="https://wa.me/77775755748" target="_blank" rel="noopener" title="WhatsApp" className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#25D366] hover:opacity-80 transition-opacity">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.114.55 4.1 1.508 5.83L0 24l6.335-1.482A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 01-5.032-1.388l-.36-.214-3.733.873.936-3.629-.235-.372A9.799 9.799 0 012.182 12C2.182 6.579 6.579 2.182 12 2.182S21.818 6.579 21.818 12 17.421 21.818 12 21.818z"/></svg>
@@ -85,10 +85,10 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/30 text-xs">
-            © {new Date().getFullYear()} Terratech. {t('footer.rights')}
+            Â© {new Date().getFullYear()} Terratech. {t('footer.rights')}
           </p>
           <div className="flex items-center gap-4 text-xs text-white/30">
-            <span>Rittal · Legrand · Phoenix Contact · ZPAS · Weiss · Hitec</span>
+            <span>Rittal Â· Legrand Â· Phoenix Contact Â· ZPAS Â· Weiss Â· Hitec</span>
           </div>
         </div>
       </div>
