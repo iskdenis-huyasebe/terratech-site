@@ -95,7 +95,7 @@ export async function POST(req: Request) {
         .replace(/"/g, '&quot;');
 
       await resend.emails.send({
-        from: 'Terratech Website <onboarding@resend.dev>',
+        from: 'Terratech <noreply@terradstr.com>',
         to: ['dkislenko@terradstr.com'],
         replyTo: email,
         subject: `Новая заявка с сайта от ${esc(name)}${company ? ` (${esc(company)})` : ''}`,
