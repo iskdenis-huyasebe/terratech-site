@@ -75,7 +75,7 @@ export default function HeroSection() {
           {/* Right — data center illustration */}
           <div className="hidden lg:block relative h-[580px] rounded-2xl overflow-hidden">
             <img
-              src="/datacenter-hero.svg"
+              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=900&fit=crop&q=85&auto=format"
               alt="Modern data center server racks with blue lighting"
               className="w-full h-full object-cover"
             />
