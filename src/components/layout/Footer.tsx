@@ -88,6 +88,9 @@ export default function Footer() {
             © {new Date().getFullYear()} Terratech. {t('footer.rights')}
           </p>
           <div className="flex items-center gap-4 text-xs text-white/30">
+            <Link href={`/${locale}/privacy`} className="hover:text-white/60 transition-colors">
+              {locale === 'ru' ? 'Политика конфиденциальности' : 'Privacy Policy'}
+            </Link>
             <span>Rittal · Legrand · Phoenix Contact · ZPAS · Weiss · Hitec</span>
           </div>
         </div>
