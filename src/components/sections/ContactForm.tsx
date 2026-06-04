@@ -3,6 +3,19 @@ import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 
+function getUtmParams(): Record<string, string> {
+  if (typeof window === 'undefined') return {};
+  const params = new URLSearchParams(window.location.search);
+  const result: Record<string, string> = {};
+  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(key => {
+    const val = params.get(key);
+    if (val) result[key] = val;
+  });
+  if (document.referrer) result['referrer'] = document.referrer;
+  result['page'] = window.location.pathname;
+  return result;
+}
+
 export default function ContactForm() {
   const t = useTranslations('contact');
   const locale = useLocale();
@@ -24,7 +37,7 @@ export default function ContactForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, locale }),
+        body: JSON.stringify({ ...form, locale, ...getUtmParams() }),
       });
       if (res.ok) {
         setStatus('success');
