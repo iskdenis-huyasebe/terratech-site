@@ -1,13 +1,11 @@
 import { NextResponse } from 'next/server';
 
-// Simple in-memory rate limiter (per IP, resets on server restart)
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
-  const windowMs = 60 * 60 * 1000; // 1 hour window
+  const windowMs = 60 * 60 * 1000;
   const maxRequests = 5;
-
   const entry = rateLimitMap.get(ip);
   if (!entry || now > entry.resetAt) {
     rateLimitMap.set(ip, { count: 1, resetAt: now + windowMs });
@@ -51,12 +49,17 @@ export async function POST(req: Request) {
 
     const body = await req.json();
 
-    const name    = sanitize(body.name, 100);
-    const company = sanitize(body.company, 150);
-    const email   = sanitize(body.email, 254);
-    const phone   = sanitize(body.phone, 30);
-    const message = sanitize(body.message, 2000);
-    const locale  = sanitize(body.locale, 5);
+    const name         = sanitize(body.name, 100);
+    const company      = sanitize(body.company, 150);
+    const email        = sanitize(body.email, 254);
+    const phone        = sanitize(body.phone, 30);
+    const message      = sanitize(body.message, 2000);
+    const locale       = sanitize(body.locale, 5);
+    const utmSource    = sanitize(body.utm_source, 100);
+    const utmMedium    = sanitize(body.utm_medium, 100);
+    const utmCampaign  = sanitize(body.utm_campaign, 100);
+    const referrer     = sanitize(body.referrer, 300);
+    const page         = sanitize(body.page, 200);
 
     if (!name || name.length < 2) {
       return NextResponse.json({ ok: false, error: 'Invalid name' }, { status: 400 });
@@ -84,6 +87,14 @@ export async function POST(req: Request) {
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
 
+      const utmRows = [
+        utmSource   ? `<tr><td style="padding:6px 0;color:#999;width:120px;">UTM Source</td><td style="padding:6px 0;">${esc(utmSource)}</td></tr>` : '',
+        utmMedium   ? `<tr><td style="padding:6px 0;color:#999;">UTM Medium</td><td style="padding:6px 0;">${esc(utmMedium)}</td></tr>` : '',
+        utmCampaign ? `<tr><td style="padding:6px 0;color:#999;">UTM Campaign</td><td style="padding:6px 0;">${esc(utmCampaign)}</td></tr>` : '',
+        referrer    ? `<tr><td style="padding:6px 0;color:#999;">Referrer</td><td style="padding:6px 0;">${esc(referrer)}</td></tr>` : '',
+        page        ? `<tr><td style="padding:6px 0;color:#999;">Страница</td><td style="padding:6px 0;">${esc(page)}</td></tr>` : '',
+      ].join('');
+
       // 1. Notify Denis
       await resend.emails.send({
         from: 'Terratech <noreply@terradstr.com>',
@@ -102,7 +113,12 @@ export async function POST(req: Request) {
               ${phone ? `<tr><td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666;">Телефон</td><td style="padding: 10px 0; border-bottom: 1px solid #eee;">${esc(phone)}</td></tr>` : ''}
               <tr><td style="padding: 10px 0; color: #666; vertical-align: top;">Сообщение</td><td style="padding: 10px 0; white-space: pre-wrap;">${esc(message)}</td></tr>
             </table>
-            <p style="color: #999; font-size: 12px; margin-top: 24px;">IP: ${esc(ip)} · Язык формы: ${esc(locale?.toUpperCase())}</p>
+            ${utmRows ? `
+            <div style="margin-top: 24px; padding: 16px; background: #f9f9f9; border-radius: 8px;">
+              <p style="font-size: 11px; color: #999; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.05em;">Источник</p>
+              <table style="width: 100%; border-collapse: collapse; font-size: 13px;">${utmRows}</table>
+            </div>` : ''}
+            <p style="color: #999; font-size: 12px; margin-top: 24px;">IP: ${esc(ip)} · Язык: ${esc(locale?.toUpperCase())}</p>
           </div>
         `,
       });
@@ -143,10 +159,17 @@ export async function POST(req: Request) {
       console.log('Contact form submission:', { name, company, email, phone, message: message.slice(0, 100) });
     }
 
-    // 3. Telegram notification (optional, if env vars set)
+    // 3. Telegram notification
     const TG_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
     const TG_CHAT  = process.env.TELEGRAM_CHAT_ID;
     if (TG_TOKEN && TG_CHAT) {
+      const utmLine = [
+        utmSource && `utm_source: ${utmSource}`,
+        utmMedium && `utm_medium: ${utmMedium}`,
+        utmCampaign && `utm_campaign: ${utmCampaign}`,
+        page && `page: ${page}`,
+      ].filter(Boolean).join(', ');
+
       const text = [
         '🔔 Новая заявка с сайта Terratech',
         `Имя: ${name}`,
@@ -154,6 +177,7 @@ export async function POST(req: Request) {
         `Email: ${email}`,
         phone ? `Тел: ${phone}` : null,
         `Сообщение: ${message.slice(0, 500)}`,
+        utmLine ? `\n📊 ${utmLine}` : null,
       ].filter(Boolean).join('\n');
 
       await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
