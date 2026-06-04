@@ -2,12 +2,12 @@ import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 
 const markets = [
-  { name: 'Казахстан', nameEn: 'Kazakhstan', flag: '🇰🇿', desc: 'Алматы, Астана', active: true },
-  { name: 'Узбекистан', nameEn: 'Uzbekistan', flag: '🇺🇿', desc: 'Ташкент', active: true },
-  { name: 'Грузия', nameEn: 'Georgia', flag: '🇬🇪', desc: 'Тбилиси', active: true },
-  { name: 'Азербайджан', nameEn: 'Azerbaijan', flag: '🇦🇿', desc: 'Баку', active: true },
-  { name: 'Армения', nameEn: 'Armenia', flag: '🇦🇲', desc: 'Ереван', active: true },
-  { name: 'Литва', nameEn: 'Lithuania', flag: '🇱🇹', desc: 'Вильнюс', active: true },
+  { name: 'Казахстан', nameEn: 'Kazakhstan', code: 'kz', desc: 'Алматы, Астана', active: true },
+  { name: 'Узбекистан', nameEn: 'Uzbekistan', code: 'uz', desc: 'Ташкент', active: true },
+  { name: 'Грузия', nameEn: 'Georgia', code: 'ge', desc: 'Тбилиси', active: true },
+  { name: 'Азербайджан', nameEn: 'Azerbaijan', code: 'az', desc: 'Баку', active: true },
+  { name: 'Армения', nameEn: 'Armenia', code: 'am', desc: 'Ереван', active: true },
+  { name: 'Литва', nameEn: 'Lithuania', code: 'lt', desc: 'Вильнюс', active: true },
 ];
 
 export default function GeographySection() {
@@ -36,12 +36,18 @@ export default function GeographySection() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-10 md:mb-12">
           {markets.map((market) => (
-            <div key={market.name} className="bg-white/5 border border-white/10 rounded-xl p-4 md:p-5 text-center hover:bg-white/8 hover:border-[#E8500A]/30 transition-all">
-              <span className="text-3xl mb-3 block">{market.flag}</span>
+            <div key={market.name} className="group bg-white/[0.04] border border-white/10 rounded-2xl p-5 md:p-6 text-center hover:bg-white/[0.07] hover:border-[#E8500A]/40 hover:-translate-y-1 transition-all duration-300">
+              <span className="block w-12 h-12 mx-auto mb-4 rounded-full overflow-hidden ring-2 ring-white/15 group-hover:ring-[#E8500A]/50 transition-all">
+                <img
+                  src={`https://flagcdn.com/w160/${market.code}.png`}
+                  alt={locale === 'ru' ? market.name : market.nameEn}
+                  className="w-full h-full object-cover"
+                />
+              </span>
               <p className="text-white font-semibold text-sm mb-1">
                 {locale === 'ru' ? market.name : market.nameEn}
               </p>
-              <p className="text-white/35 text-xs">{market.desc}</p>
+              <p className="text-white/45 text-xs">{market.desc}</p>
             </div>
           ))}
         </div>

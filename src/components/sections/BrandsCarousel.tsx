@@ -2,7 +2,6 @@
 import { useLocale } from 'next-intl';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const brands = [
   {
@@ -101,7 +100,7 @@ export default function BrandsCarousel() {
   const brand = brands[active];
 
   return (
-    <section className="section-sm bg-[#F7F6F3] border-y border-[#E2DDD6]">
+    <section className="section-sm bg-gradient-to-b from-[#071020] to-[#0A1628] border-y border-white/10">
       <div className="container-main">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 md:mb-10">
@@ -109,7 +108,7 @@ export default function BrandsCarousel() {
             <p className="text-[#E8500A] text-xs font-semibold uppercase tracking-widest mb-2">
               {isRu ? 'Официальный поставщик' : 'Authorized Supplier'}
             </p>
-            <h2 className="font-display text-3xl md:text-4xl text-[#0A1628]">
+            <h2 className="font-display text-3xl md:text-4xl text-white">
               {isRu ? 'Бренды в наличии' : 'Brands We Supply'}
             </h2>
           </div>
@@ -124,11 +123,11 @@ export default function BrandsCarousel() {
             <button
               key={b.name}
               onClick={() => setActive(i)}
-              className="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 flex items-center gap-2"
+              className="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 flex items-center gap-2 border"
               style={{
-                background: active === i ? b.color : 'white',
-                color: active === i ? 'white' : '#0A1628',
-                border: `1.5px solid ${active === i ? b.color : '#E2DDD6'}`,
+                background: active === i ? b.color : 'rgba(255,255,255,0.05)',
+                color: 'white',
+                borderColor: active === i ? b.color : 'rgba(255,255,255,0.15)',
               }}
             >
               {b.name}
@@ -139,26 +138,24 @@ export default function BrandsCarousel() {
         {/* Active brand card */}
         <div
           key={active}
-          className="rounded-2xl overflow-hidden border transition-all duration-300"
-          style={{ borderColor: `${brand.color}30` }}
+          className="rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03]"
         >
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Left: info */}
-            <div
-              className="p-8 md:p-10"
-              style={{ background: `${brand.color}08` }}
-            >
+            <div className="p-8 md:p-10">
               {/* Logo */}
-              <div className="h-12 mb-6 flex items-center">
+              <div className="mb-6 flex items-center">
                 {!imgError[active] ? (
-                  <img
-                    src={brand.logo}
-                    alt={brand.name}
-                    className="h-10 object-contain object-left"
-                    onError={() => setImgError(prev => ({ ...prev, [active]: true }))}
-                  />
+                  <span className="inline-flex items-center bg-white rounded-lg px-4 py-2.5 shadow-sm">
+                    <img
+                      src={brand.logo}
+                      alt={brand.name}
+                      className="h-7 object-contain object-left"
+                      onError={() => setImgError(prev => ({ ...prev, [active]: true }))}
+                    />
+                  </span>
                 ) : (
-                  <span className="font-bold text-2xl" style={{ color: brand.color }}>
+                  <span className="font-bold text-2xl text-white">
                     {brand.name}
                   </span>
                 )}
@@ -166,7 +163,7 @@ export default function BrandsCarousel() {
 
               {/* Country + tag */}
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-[#0A1628]/40 text-sm">
+                <span className="text-white/45 text-sm">
                   {isRu ? brand.country : brand.countryEn}
                 </span>
                 <span
@@ -178,7 +175,7 @@ export default function BrandsCarousel() {
               </div>
 
               {/* Description */}
-              <p className="text-[#0A1628]/65 text-base leading-relaxed mb-6">
+              <p className="text-white/70 text-base leading-relaxed mb-6">
                 {isRu ? brand.desc : brand.descEn}
               </p>
 
@@ -187,8 +184,7 @@ export default function BrandsCarousel() {
                 {(isRu ? brand.products : brand.productsEn).map(p => (
                   <span
                     key={p}
-                    className="text-xs px-3 py-1.5 rounded-full bg-white font-medium border"
-                    style={{ color: brand.color, borderColor: `${brand.color}30` }}
+                    className="text-xs px-3 py-1.5 rounded-full bg-white/[0.06] font-medium border border-white/10 text-white/75"
                   >
                     {p}
                   </span>
@@ -208,16 +204,13 @@ export default function BrandsCarousel() {
             </div>
 
             {/* Right: image */}
-            <div className="relative h-64 md:h-auto min-h-64 overflow-hidden">
+            <div className="relative h-64 md:h-auto min-h-72 overflow-hidden order-first md:order-none">
               <img
                 src={brand.image}
                 alt={brand.name + ' equipment'}
                 className="w-full h-full object-cover"
               />
-              <div
-                className="absolute inset-0"
-                style={{ background: `linear-gradient(135deg, ${brand.color}40 0%, transparent 60%)` }}
-              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/80 via-transparent to-transparent md:bg-gradient-to-l md:from-transparent md:via-transparent md:to-[#0A1628]/30" />
               <div className="absolute bottom-6 left-6">
                 <span className="text-white font-bold text-3xl drop-shadow-lg">{brand.name}</span>
               </div>
@@ -235,7 +228,7 @@ export default function BrandsCarousel() {
               style={{
                 width: active === i ? '24px' : '8px',
                 height: '8px',
-                background: active === i ? brand.color : '#D1C9BD',
+                background: active === i ? brand.color : 'rgba(255,255,255,0.2)',
               }}
             />
           ))}

@@ -15,7 +15,8 @@ export default function HeroSection() {
             backgroundSize: '80px 80px'
           }}
         ></div>
-        <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-[#E8500A] rounded-full opacity-[0.05] blur-[150px]"></div>
+        <div className="absolute top-1/4 right-1/3 w-[600px] h-[600px] bg-[#E8500A] rounded-full opacity-[0.12] blur-[150px]"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#1E40AF] rounded-full opacity-[0.10] blur-[160px]"></div>
       </div>
 
       <div className="container-main relative z-10" style={{paddingTop: '100px', paddingBottom: '60px'}}>
@@ -34,7 +35,7 @@ export default function HeroSection() {
               )}
             </h1>
 
-            <p className="text-white/55 text-base leading-relaxed mb-8">
+            <p className="text-white/70 text-base md:text-lg leading-relaxed mb-8 max-w-xl">
               {t('subtitle')}
             </p>
 
@@ -58,46 +59,47 @@ export default function HeroSection() {
               </Link>
             </div>
 
-            <div className="flex flex-wrap gap-6 sm:gap-10">
+            <div className="flex flex-wrap gap-8 sm:gap-12 pt-2">
               {[
                 { value: t('stat1_value'), label: t('stat1_label') },
                 { value: t('stat2_value'), label: t('stat2_label') },
                 { value: t('stat3_value'), label: t('stat3_label') },
               ].map((stat, i) => (
                 <div key={i} className="flex flex-col">
-                  <span className="font-display text-2xl md:text-3xl text-white">{stat.value}</span>
-                  <span className="text-white/45 text-sm mt-1">{stat.label}</span>
+                  <span className="font-display text-3xl md:text-4xl text-white leading-none">{stat.value}</span>
+                  <span className="w-8 h-0.5 bg-[#E8500A] my-2.5"></span>
+                  <span className="text-white/60 text-sm">{stat.label}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right — data center illustration */}
-          <div className="hidden lg:block relative h-[580px] rounded-2xl overflow-hidden">
+          {/* Right — data center photo */}
+          <div className="hidden lg:block relative h-[600px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
             <img
               src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=900&fit=crop&q=85&auto=format"
               alt="Modern data center server racks with blue lighting"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover scale-105"
             />
-            {/* Subtle overlay to blend with dark background */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/70 via-transparent to-transparent"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/40 to-transparent"></div>
+            {/* Light blend only at edges so the photo stays bright */}
+            <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-[#0A1628]/80 to-transparent"></div>
+            <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/50 to-transparent"></div>
 
             {/* Top badge */}
             <div className="absolute top-5 right-5">
-              <span className="text-xs font-semibold px-3 py-1.5 rounded-full bg-[#E8500A]/90 backdrop-blur-sm text-white border border-[#E8500A]/30">
+              <span className="text-xs font-semibold px-3.5 py-1.5 rounded-full bg-[#E8500A] text-white shadow-lg shadow-[#E8500A]/30">
                 {locale === 'ru' ? 'Поставка под ключ' : 'Turnkey Supply'}
               </span>
             </div>
 
             {/* Bottom brands */}
             <div className="absolute bottom-6 left-6 right-6">
-              <p className="text-white/40 text-xs uppercase tracking-widest mb-3 font-semibold">
+              <p className="text-white/60 text-xs uppercase tracking-widest mb-3 font-semibold">
                 {locale === 'ru' ? 'Партнёры' : 'Partners'}
               </p>
               <div className="flex flex-wrap gap-2">
                 {['Rittal', 'Legrand', 'Phoenix Contact', 'ZPAS', 'Weiss', 'Hitec'].map((brand) => (
-                  <span key={brand} className="text-xs font-semibold px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-white/80 border border-white/15">
+                  <span key={brand} className="text-xs font-semibold px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20">
                     {brand}
                   </span>
                 ))}
