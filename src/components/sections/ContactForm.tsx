@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
+import Link from 'next/link';
 
 export default function ContactForm() {
   const t = useTranslations('contact');
@@ -8,6 +9,7 @@ export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', message: '' });
   const [honeypot, setHoneypot] = useState('');
+  const [consent, setConsent] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -16,6 +18,7 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (honeypot) return;
+    if (!consent) return;
     setStatus('sending');
     try {
       const res = await fetch('/api/contact', {
@@ -26,6 +29,7 @@ export default function ContactForm() {
       if (res.ok) {
         setStatus('success');
         setForm({ name: '', company: '', email: '', phone: '', message: '' });
+        setConsent(false);
       } else {
         setStatus('error');
       }
@@ -35,6 +39,7 @@ export default function ContactForm() {
   };
 
   const inputClass = "w-full bg-[#F7F6F3] border border-[#E2DDD6] rounded-lg px-4 py-3 text-[#0A1628] text-sm placeholder-[#0A1628]/35 focus:outline-none focus:border-[#E8500A] focus:ring-1 focus:ring-[#E8500A] transition-colors";
+  const labelClass = "block text-xs font-medium text-[#0A1628]/60 mb-1";
 
   return (
     <section className="section bg-white" id="contact">
@@ -113,23 +118,81 @@ export default function ContactForm() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Honeypot — invisible to humans, bots fill it */}
+                {/* Honeypot */}
                 <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} aria-hidden="true">
                   <input type="text" name="website" value={honeypot} onChange={e => setHoneypot(e.target.value)} tabIndex={-1} autoComplete="off" />
                 </div>
+
                 <div className="grid grid-cols-2 gap-4">
-                  <input name="name" value={form.name} onChange={handleChange} required placeholder={t('name')} className={inputClass} />
-                  <input name="company" value={form.company} onChange={handleChange} placeholder={t('company')} className={inputClass} />
+                  <div>
+                    <label htmlFor="name" className={labelClass}>
+                      {locale === 'ru' ? 'Имя' : 'Name'} <span className="text-[#E8500A]">*</span>
+                    </label>
+                    <input id="name" name="name" value={form.name} onChange={handleChange} required placeholder={t('name')} className={inputClass} />
+                  </div>
+                  <div>
+                    <label htmlFor="company" className={labelClass}>
+                      {locale === 'ru' ? 'Компания' : 'Company'}
+                    </label>
+                    <input id="company" name="company" value={form.company} onChange={handleChange} placeholder={t('company')} className={inputClass} />
+                  </div>
                 </div>
-                <input name="email" type="email" value={form.email} onChange={handleChange} required placeholder={t('email')} className={inputClass} />
-                <input name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder={t('phone')} className={inputClass} />
-                <textarea name="message" value={form.message} onChange={handleChange} rows={4} placeholder={t('message')} className={`${inputClass} resize-none`} />
+
+                <div>
+                  <label htmlFor="email" className={labelClass}>
+                    Email <span className="text-[#E8500A]">*</span>
+                  </label>
+                  <input id="email" name="email" type="email" value={form.email} onChange={handleChange} required placeholder={t('email')} className={inputClass} />
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className={labelClass}>
+                    {locale === 'ru' ? 'Телефон' : 'Phone'}
+                  </label>
+                  <input id="phone" name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="+7 777 000 0000" className={inputClass} />
+                </div>
+
+                <div>
+                  <label htmlFor="message" className={labelClass}>
+                    {locale === 'ru' ? 'Сообщение' : 'Message'}
+                  </label>
+                  <textarea id="message" name="message" value={form.message} onChange={handleChange} rows={4} placeholder={t('message')} className={`${inputClass} resize-none`} />
+                </div>
+
+                {/* Consent checkbox (GDPR) */}
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                  <input
+                    id="consent"
+                    type="checkbox"
+                    checked={consent}
+                    onChange={e => setConsent(e.target.checked)}
+                    required
+                    style={{ marginTop: '2px', accentColor: '#E8500A', width: '16px', height: '16px', flexShrink: 0, cursor: 'pointer' }}
+                  />
+                  <label htmlFor="consent" style={{ fontSize: '12px', color: 'rgba(10,22,40,0.55)', lineHeight: '1.5', cursor: 'pointer' }}>
+                    {locale === 'ru' ? (
+                      <>
+                        Нажимая «Отправить», вы соглашаетесь с{' '}
+                        <Link href={`/${locale}/privacy`} style={{ color: '#E8500A', textDecoration: 'underline' }}>
+                          политикой обработки персональных данных
+                        </Link>
+                      </>
+                    ) : (
+                      <>
+                        By clicking Submit, you agree to our{' '}
+                        <Link href={`/${locale}/privacy`} style={{ color: '#E8500A', textDecoration: 'underline' }}>
+                          privacy policy
+                        </Link>
+                      </>
+                    )}
+                  </label>
+                </div>
 
                 {status === 'error' && (
                   <p className="text-red-500 text-sm">{t('error')}</p>
                 )}
 
-                <button type="submit" disabled={status === 'sending'} className="btn-primary w-full justify-center text-base py-3.5 disabled:opacity-60">
+                <button type="submit" disabled={status === 'sending' || !consent} className="btn-primary w-full justify-center text-base py-3.5 disabled:opacity-60">
                   {status === 'sending' ? t('sending') : t('submit')}
                   {status !== 'sending' && (
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
