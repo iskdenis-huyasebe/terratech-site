@@ -557,25 +557,14 @@ export default function ProductsCatalog() {
                 </div>
 
                 {/* Card footer */}
-                <div className="px-6 pb-6 pt-4 border-t border-[#F0EDE8] flex items-center justify-between gap-3">
+                <div className="px-6 pb-6 pt-4 border-t border-[#F0EDE8]">
                   <Link
                     href={`/${locale}/contacts`}
-                    className="btn-primary text-xs py-2.5 px-5 flex-1 text-center"
+                    className="btn-primary text-xs py-2.5 px-5 w-full text-center block"
                     style={{ fontSize: '13px' }}
                   >
                     {isRu ? 'Запросить КП' : 'Request Quote'}
                   </Link>
-                  <a
-                    href={product.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs font-semibold text-[#0A1628]/40 hover:text-[#0A1628] transition-colors flex items-center gap-1 whitespace-nowrap"
-                  >
-                    {isRu ? 'Сайт бренда' : 'Brand site'}
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
                 </div>
               </div>
             ))}
