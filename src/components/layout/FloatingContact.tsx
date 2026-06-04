@@ -14,7 +14,7 @@ export default function FloatingContact() {
     }}>
       {/* WhatsApp */}
       <a
-        href="https://wa.me/77775755748"
+        href="https://wa.me/37065288897"
         target="_blank"
         rel="noopener noreferrer"
         title="WhatsApp"
@@ -40,7 +40,7 @@ export default function FloatingContact() {
 
       {/* Telegram */}
       <a
-        href="https://t.me/+77775755748"
+        href="https://t.me/+37065288897"
         target="_blank"
         rel="noopener noreferrer"
         title="Telegram"
