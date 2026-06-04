@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { locales } from '@/i18n/request';
+import FloatingContact from '@/components/layout/FloatingContact';
 import '../globals.css';
 
 export async function generateStaticParams() {
@@ -106,6 +107,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
+        <FloatingContact />
       </body>
     </html>
   );
