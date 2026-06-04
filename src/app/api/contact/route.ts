@@ -1,13 +1,12 @@
 import { NextResponse } from 'next/server';
 
 // Simple in-memory rate limiter (per IP, resets on server restart)
-// For production Vercel consider using @vercel/kv or upstash/ratelimit
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
   const windowMs = 60 * 60 * 1000; // 1 hour window
-  const maxRequests = 5; // max 5 submissions per hour per IP
+  const maxRequests = 5;
 
   const entry = rateLimitMap.get(ip);
   if (!entry || now > entry.resetAt) {
@@ -19,22 +18,19 @@ function checkRateLimit(ip: string): boolean {
   return true;
 }
 
-// Sanitize string — strip HTML tags and limit length
 function sanitize(value: unknown, maxLength = 500): string {
   if (typeof value !== 'string') return '';
   return value
-    .replace(/[<>]/g, '') // strip < > to prevent HTML injection
-    .replace(/javascript:/gi, '') // block js: URIs
+    .replace(/[<>]/g, '')
+    .replace(/javascript:/gi, '')
     .trim()
     .slice(0, maxLength);
 }
 
-// Validate email format
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 254;
 }
 
-// Basic spam keyword check
 function isSpam(text: string): boolean {
   const spamPatterns = [/\bviagra\b/i, /\bcasino\b/i];
   return spamPatterns.some(p => p.test(text));
@@ -42,7 +38,6 @@ function isSpam(text: string): boolean {
 
 export async function POST(req: Request) {
   try {
-    // Rate limiting by IP
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
       || req.headers.get('x-real-ip')
       || 'unknown';
@@ -56,7 +51,6 @@ export async function POST(req: Request) {
 
     const body = await req.json();
 
-    // Sanitize all inputs
     const name    = sanitize(body.name, 100);
     const company = sanitize(body.company, 150);
     const email   = sanitize(body.email, 254);
@@ -64,7 +58,6 @@ export async function POST(req: Request) {
     const message = sanitize(body.message, 2000);
     const locale  = sanitize(body.locale, 5);
 
-    // Server-side validation
     if (!name || name.length < 2) {
       return NextResponse.json({ ok: false, error: 'Invalid name' }, { status: 400 });
     }
@@ -75,9 +68,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: 'Message too short' }, { status: 400 });
     }
 
-    // Basic spam check
     if (isSpam(name) || isSpam(message) || isSpam(company)) {
-      // Silently accept but don't send — confuses bots
       return NextResponse.json({ ok: true });
     }
 
@@ -87,13 +78,13 @@ export async function POST(req: Request) {
       const { Resend } = await import('resend');
       const resend = new Resend(RESEND_API_KEY);
 
-      // Safe HTML escaping for email template
       const esc = (s: string) => s
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
 
+      // 1. Notify Denis
       await resend.emails.send({
         from: 'Terratech <noreply@terradstr.com>',
         to: ['dkislenko@terradstr.com'],
@@ -115,8 +106,61 @@ export async function POST(req: Request) {
           </div>
         `,
       });
+
+      // 2. Auto-reply to client
+      const isRu = locale === 'ru';
+      await resend.emails.send({
+        from: 'Terratech <noreply@terradstr.com>',
+        to: [email],
+        subject: isRu ? 'Мы получили вашу заявку — Terratech' : 'We received your request — Terratech',
+        html: `
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 32px;">
+            <div style="background: #0A1628; padding: 24px; border-radius: 8px; margin-bottom: 24px;">
+              <h1 style="color: white; margin: 0; font-size: 20px;">Terratech</h1>
+            </div>
+            <p style="font-size: 16px; color: #0A1628;">
+              ${isRu ? `Здравствуйте, ${esc(name)}!` : `Hello, ${esc(name)}!`}
+            </p>
+            <p style="color: #444; line-height: 1.6;">
+              ${isRu
+                ? 'Спасибо за вашу заявку. Мы её получили и ответим в течение <strong>2 часов</strong> в рабочее время (пн–пт, 9:00–18:00 по Алматы).'
+                : 'Thank you for your request. We have received it and will get back to you within <strong>2 hours</strong> during business hours (Mon–Fri, 9:00–18:00 Almaty time).'
+              }
+            </p>
+            <p style="color: #444; line-height: 1.6;">
+              ${isRu
+                ? 'Если вопрос срочный — напишите нам напрямую в WhatsApp или Telegram: <a href="https://wa.me/77775755748" style="color: #E8500A;">+7 777 575 5748</a>'
+                : 'For urgent matters, contact us directly via WhatsApp or Telegram: <a href="https://wa.me/77775755748" style="color: #E8500A;">+7 777 575 5748</a>'
+              }
+            </p>
+            <p style="color: #999; font-size: 13px; margin-top: 32px; border-top: 1px solid #eee; padding-top: 16px;">
+              Terratech · <a href="https://terradstr.com" style="color: #E8500A;">terradstr.com</a>
+            </p>
+          </div>
+        `,
+      });
     } else {
       console.log('Contact form submission:', { name, company, email, phone, message: message.slice(0, 100) });
+    }
+
+    // 3. Telegram notification (optional, if env vars set)
+    const TG_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+    const TG_CHAT  = process.env.TELEGRAM_CHAT_ID;
+    if (TG_TOKEN && TG_CHAT) {
+      const text = [
+        '🔔 Новая заявка с сайта Terratech',
+        `Имя: ${name}`,
+        company ? `Компания: ${company}` : null,
+        `Email: ${email}`,
+        phone ? `Тел: ${phone}` : null,
+        `Сообщение: ${message.slice(0, 500)}`,
+      ].filter(Boolean).join('\n');
+
+      await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: TG_CHAT, text }),
+      }).catch(() => {});
     }
 
     return NextResponse.json({ ok: true });
