@@ -1,437 +1,49 @@
 'use client';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
-
-type Product = {
-  id: string;
-  brand: string;
-  brandColor: string;
-  seriesRu: string;
-  seriesEn: string;
-  nameRu: string;
-  nameEn: string;
-  descRu: string;
-  descEn: string;
-  specs: string[];
-  specsEn: string[];
-  category: string;
-  url: string;
-  image: string;
-  highlight?: boolean;
-};
-
-const categories = [
-  { id: 'all',        labelRu: 'Все',                  labelEn: 'All' },
-  { id: 'cabinets',   labelRu: 'Шкафы и корпусы',      labelEn: 'Enclosures' },
-  { id: 'racks',      labelRu: 'Серверные стойки',     labelEn: 'Server Racks' },
-  { id: 'climate',    labelRu: 'Климатизация',          labelEn: 'Climate Control' },
-  { id: 'floor',      labelRu: 'Фальшполы',            labelEn: 'Raised Floors' },
-  { id: 'components', labelRu: 'Компоненты',           labelEn: 'Components' },
-];
-
-const products: Product[] = [
-  // ── RITTAL (Системный каталог №36) ──────────────────────
-  {
-    id: 'rittal-vx25',
-    brand: 'Rittal',
-    brandColor: '#3E72C7',
-    seriesRu: 'VX25 — Шкафная система',
-    seriesEn: 'VX25 — Baying Enclosure System',
-    nameRu: 'Шкаф секционируемый VX25',
-    nameEn: 'VX25 Baying Enclosure',
-    descRu: 'Флагманская система Rittal для построения распределительных устройств любой сложности. Доступ со всех сторон, монтаж без инструментов, встроенная система заземления. Арт.: 8615.000 (600×500×1200), 8815.000 (800×500×1200), 8215.000 (1200×500×1200).',
-    descEn: 'Rittal\'s flagship system for all switchgear configurations. Accessible from all sides, tool-free mounting, integrated earthing. Art.: 8615.000 (600×500×1200), 8815.000 (800×500×1200), 8215.000 (1200×500×1200).',
-    specs: ['Ширина: 600–1200 мм', 'Высота: 1200–2200 мм', 'Глубина: 400–800 мм', 'IP55 / IP66', 'RAL 7035 / RAL 9005'],
-    specsEn: ['Width: 600–1200 mm', 'Height: 1200–2200 mm', 'Depth: 400–800 mm', 'IP55 / IP66', 'RAL 7035 / RAL 9005'],
-    category: 'cabinets',
-    url: 'https://www.rittal.com/lt-en/products/enclosures/vx25/',
-    image: '/rittal/rittal-vx25.jpg',
-    highlight: true,
-  },
-  {
-    id: 'rittal-vx-se',
-    brand: 'Rittal',
-    brandColor: '#3E72C7',
-    seriesRu: 'VX SE — Отдельностоящий шкаф',
-    seriesEn: 'VX SE — Free-standing Enclosure',
-    nameRu: 'Шкаф отдельностоящий VX SE',
-    nameEn: 'VX SE Free-standing Enclosure',
-    descRu: 'Система для одиночных применений шириной до 1800 мм. Общий диапазон аксессуаров с VX25. Арт.: серия 8886/8887 (IP66/NEMA 4). Исполнение из нержавеющей стали под заказ.',
-    descEn: 'System for standalone applications up to 1800 mm wide. Shares full accessory range with VX25. Art.: 8886/8887 series (IP66/NEMA 4). Stainless steel version available on request.',
-    specs: ['Ширина: 600–1800 мм', 'IP55 / IP66 / NEMA 4', 'RAL 7035', 'Нержавеющая сталь', 'IEC 62208'],
-    specsEn: ['Width: 600–1800 mm', 'IP55 / IP66 / NEMA 4', 'RAL 7035', 'Stainless steel option', 'IEC 62208'],
-    category: 'cabinets',
-    url: 'https://www.rittal.com/lt-en/products/enclosures/vx25/',
-    image: '/rittal/rittal-vx25.jpg',
-  },
-  {
-    id: 'rittal-ax',
-    brand: 'Rittal',
-    brandColor: '#3E72C7',
-    seriesRu: 'AX — Компактный корпус',
-    seriesEn: 'AX — Compact Enclosure',
-    nameRu: 'Компактный корпус AX',
-    nameEn: 'AX Compact Enclosure',
-    descRu: 'Настенные корпуса для монтажа вне щитовых помещений. Дверь переворачивается на 180°, уплотнение PU по периметру. Варианты: листовая сталь, нержавеющая сталь, пластик. Арт.: от 1045.000 (300×300×210).',
-    descEn: 'Wall-mounted enclosures for installation outside panel rooms. Door reversible 180°, all-round PU seal. Options: sheet steel, stainless steel, plastic. Art.: from 1045.000 (300×300×210).',
-    specs: ['300×210 — 800×600 мм', 'IP66 / NEMA 4X', 'UL / cUL', 'RAL 7035', 'Петли 180°'],
-    specsEn: ['300×210 — 800×600 mm', 'IP66 / NEMA 4X', 'UL / cUL', 'RAL 7035', '180° hinges'],
-    category: 'cabinets',
-    url: 'https://www.rittal.com/lt-en/products/enclosures/ax/',
-    image: '/rittal/rittal-ax.jpg',
-  },
-  {
-    id: 'rittal-vx-it',
-    brand: 'Rittal',
-    brandColor: '#3E72C7',
-    seriesRu: 'VX IT — Серверная стойка',
-    seriesEn: 'VX IT — Network/Server Rack',
-    nameRu: 'Серверная стойка VX IT',
-    nameEn: 'VX IT Server Rack',
-    descRu: 'Стойки для сетевой инфраструктуры, Edge и ЦОД. Алюминиевая фронтальная дверь (перфорация 85%), стеклянная или перфорированная задняя. Арт.: 5303.114 (24U 800×1000×1200), 5329.111 (42U 800×1000×2000).',
-    descEn: 'Racks for network infrastructure, edge and data centres. Aluminium front door (85% perforation), glass or vented rear. Art.: 5303.114 (24U 800×1000×1200), 5329.111 (42U 800×1000×2000).',
-    specs: ['24U / 42U / 47U', 'Ширина 800 мм', 'Глубина 800–1200 мм', 'Нагрузка до 1500 кг', 'UL / cUL'],
-    specsEn: ['24U / 42U / 47U', 'Width 800 mm', 'Depth 800–1200 mm', 'Load up to 1500 kg', 'UL / cUL'],
-    category: 'racks',
-    url: 'https://www.rittal.com/lt-en/products/it-infrastructure/server-racks/',
-    image: '/rittal/rittal-vx-it.jpg',
-    highlight: true,
-  },
-  {
-    id: 'rittal-lcp-dx',
-    brand: 'Rittal',
-    brandColor: '#3E72C7',
-    seriesRu: 'LCP DX — Жидкостное охлаждение',
-    seriesEn: 'LCP DX — Liquid Cooling Package',
-    nameRu: 'Жидкостный пакет охлаждения LCP DX',
-    nameEn: 'Liquid Cooling Package LCP DX',
-    descRu: 'In-row охлаждение ЦОД. Забирает тёплый воздух сзади стоек, подаёт холодный спереди. EC-вентиляторы, инверторный компрессор, SNMP-мониторинг, интеграция в RiZone. IP 20, хладагент R-410A.',
-    descEn: 'In-row data centre cooling. Draws warm air from rear of racks, delivers cool air to the front. EC fans, inverter compressor, SNMP monitoring, RiZone integration. IP 20, refrigerant R-410A.',
-    specs: ['До 25 кВт охлаждения', 'EC-вентиляторы', 'R-410A / фреон', 'SNMP / RiZone', 'IP 20'],
-    specsEn: ['Up to 25 kW cooling', 'EC fan technology', 'R-410A refrigerant', 'SNMP / RiZone', 'IP 20'],
-    category: 'climate',
-    url: 'https://www.rittal.com/lt-en/products/it-infrastructure/cooling/',
-    image: '/rittal/rittal-vx-it.jpg',
-  },
-  {
-    id: 'rittal-blue-e-plus',
-    brand: 'Rittal',
-    brandColor: '#3E72C7',
-    seriesRu: 'Blue e+ — Кондиционер шкафа',
-    seriesEn: 'Blue e+ — Enclosure Cooling Unit',
-    nameRu: 'Кондиционер Blue e+ (настенный/крышный)',
-    nameEn: 'Blue e+ Wall/Roof Cooling Unit',
-    descRu: 'Энергоэффективное охлаждение щитов с тепловым насосом. КПД до 75% выше предыдущих серий. IoT-готовность, мониторинг через Rittal Connect. Арт.: 3185.530 (настенный 1600 Вт, RAL 9007).',
-    descEn: 'Energy-efficient enclosure cooling with heat pump technology. Up to 75% more efficient than previous series. IoT-ready, monitoring via Rittal Connect. Art.: 3185.530 (wall-mount 1600 W, RAL 9007).',
-    specs: ['1300–5800 Вт', 'КПД +75% vs Blue e', 'Настенный / крышный', 'IoT / Rittal Connect', 'EN 14511'],
-    specsEn: ['1300–5800 W', 'Up to 75% more efficient', 'Wall / roof mount', 'IoT / Rittal Connect', 'EN 14511'],
-    category: 'climate',
-    url: 'https://www.rittal.com/lt-en/products/climate-control/',
-    image: '/rittal/rittal-toptherm.jpg',
-  },
-  // ── RITTAL — Промышленные шкафы ─────────────────────────
-  {
-    id: 'rittal-ax-ss',
-    brand: 'Rittal',
-    brandColor: '#3E72C7',
-    seriesRu: 'AX — Нержавеющая сталь',
-    seriesEn: 'AX — Stainless Steel',
-    nameRu: 'Корпус AX нержавеющая сталь',
-    nameEn: 'AX Stainless Steel Enclosure',
-    descRu: 'Компактные корпуса из нержавеющей стали 1.4301 (AISI 304) для пищевой, химической и фармацевтической промышленности. Уплотнение PU по периметру, петли 180°. Арт.: от 1045.600 (300×300×210 мм).',
-    descEn: 'Compact enclosures in stainless steel 1.4301 (AISI 304) for food, chemical and pharmaceutical industries. All-round PU seal, 180° hinges. Art.: from 1045.600 (300×300×210 mm).',
-    specs: ['300×210 — 800×600 мм', 'IP66 / NEMA 4X', 'Нержавеющая сталь 1.4301', 'UL / cUL', 'RAL 7035 / полир.'],
-    specsEn: ['300×210 — 800×600 mm', 'IP66 / NEMA 4X', 'Stainless steel 1.4301', 'UL / cUL', 'RAL 7035 / polished'],
-    category: 'cabinets',
-    url: 'https://www.rittal.com/lt-en/products/enclosures/ax/',
-    image: '/rittal/rittal-ax.jpg',
-  },
-  {
-    id: 'rittal-outdoor',
-    brand: 'Rittal',
-    brandColor: '#3E72C7',
-    seriesRu: 'Уличные шкафы — Outdoor',
-    seriesEn: 'Outdoor Enclosures',
-    nameRu: 'Уличный шкаф (напольный / настенный)',
-    nameEn: 'Outdoor Enclosure (floor / wall)',
-    descRu: 'Шкафы из алюминия AlMg3 для уличной установки. Крыша с навесом, жалюзийные решётки для вентиляции, кронштейны для транспортировки краном. IP 55 / NEMA 3R. Применения: энергетика, водоснабжение, телеком.',
-    descEn: 'AlMg3 aluminium enclosures for outdoor installation. Roof projection, louvred grilles for ventilation, crane transport brackets. IP 55 / NEMA 3R. Applications: energy, water, telecom.',
-    specs: ['Алюминий AlMg3', 'IP 55 / NEMA 3R', 'RAL 7035, UV-стойкий', 'Крыша с навесом', 'Ширина 600–1200 мм'],
-    specsEn: ['AlMg3 aluminium', 'IP 55 / NEMA 3R', 'RAL 7035, UV-resistant', 'Roof projection', 'Width 600–1200 mm'],
-    category: 'cabinets',
-    url: 'https://www.rittal.com/lt-en/products/enclosures/outdoor/',
-    image: '/rittal/rittal-outdoor.jpg',
-  },
-  {
-    id: 'rittal-hd',
-    brand: 'Rittal',
-    brandColor: '#3E72C7',
-    seriesRu: 'HD — Hygienic Design',
-    seriesEn: 'HD — Hygienic Design',
-    nameRu: 'Шкаф Hygienic Design (пищевая пром.)',
-    nameEn: 'Hygienic Design Enclosure (food industry)',
-    descRu: 'Корпуса для пищевой и фармацевтической промышленности. Бесшовное силиконовое уплотнение (синее — легко отличить от продуктов), скрытые петли, гексагональные крепежи. Выдерживают мойку под давлением.',
-    descEn: 'Enclosures for food and pharmaceutical industries. Seamless silicone seal (blue — easily distinguished from food), hidden hinges, hexagonal fasteners. Withstand high-pressure cleaning.',
-    specs: ['IP 66', 'Нержавеющая сталь', 'Силиконовое уплотнение', 'Класс чистоты HD', 'Настенные / напольные'],
-    specsEn: ['IP 66', 'Stainless steel', 'Silicone seal', 'HD cleanliness class', 'Wall / floor mount'],
-    category: 'cabinets',
-    url: 'https://www.rittal.com/lt-en/products/enclosures/hygienic-design/',
-    image: '/product-wallcab.svg',
-  },
-  // ── RITTAL — Климатизация промышленная ──────────────────
-  {
-    id: 'rittal-toptherm-wall',
-    brand: 'Rittal',
-    brandColor: '#3E72C7',
-    seriesRu: 'TopTherm Blue e — Настенный',
-    seriesEn: 'TopTherm Blue e — Wall-mounted',
-    nameRu: 'Кондиционер настенный TopTherm Blue e',
-    nameEn: 'TopTherm Blue e Wall-mounted Cooling Unit',
-    descRu: 'Настенные кондиционеры для промышленных шкафов. Нано-покрытие конденсатора для защиты от агрессивных сред. Арт.: 3303.500 (500 Вт), 3323.500 (750 Вт), 3328.210 (1000 Вт), 3332.210 (1500 Вт), 3337.210 (2000 Вт), 3340.210 (2500 Вт).',
-    descEn: 'Wall-mounted cooling units for industrial enclosures. Nano-coated condenser for harsh environments. Art.: 3303.500 (500 W), 3323.500 (750 W), 3328.210 (1000 W), 3332.210 (1500 W), 3337.210 (2000 W), 3340.210 (2500 W).',
-    specs: ['300–2500 Вт', 'IP34 снаружи / IP54 внутри', 'Нано-конденсатор', 'RAL 7035 / нерж. ст.', 'DIN EN 14511'],
-    specsEn: ['300–2500 W', 'IP34 external / IP54 internal', 'Nano-coated condenser', 'RAL 7035 / SS', 'DIN EN 14511'],
-    category: 'climate',
-    url: 'https://www.rittal.com/lt-en/products/climate-control/cooling-units/',
-    image: '/rittal/rittal-toptherm.jpg',
-    highlight: true,
-  },
-  {
-    id: 'rittal-toptherm-roof',
-    brand: 'Rittal',
-    brandColor: '#3E72C7',
-    seriesRu: 'TopTherm Blue e — Крышный',
-    seriesEn: 'TopTherm Blue e — Roof-mounted',
-    nameRu: 'Кондиционер крышный TopTherm Blue e',
-    nameEn: 'TopTherm Blue e Roof-mounted Cooling Unit',
-    descRu: 'Крышные кондиционеры для установки поверх шкафа. Нано-покрытие конденсатора. Арт.: 3382.500 (500 Вт), 3386.210 (1000 Вт), 3388.210 (1500 Вт), 3391.210 (2000 Вт), 3393.210 (3000 Вт), 3395.210 (4000 Вт).',
-    descEn: 'Roof-mounted cooling units installed on top of enclosures. Nano-coated condenser. Art.: 3382.500 (500 W), 3386.210 (1000 W), 3388.210 (1500 W), 3391.210 (2000 W), 3393.210 (3000 W), 3395.210 (4000 W).',
-    specs: ['500–4000 Вт', 'IP34 снаружи / IP54 внутри', 'Установка на крышу шкафа', 'Нано-конденсатор', 'DIN EN 14511'],
-    specsEn: ['500–4000 W', 'IP34 external / IP54 internal', 'Roof mounting', 'Nano-coated condenser', 'DIN EN 14511'],
-    category: 'climate',
-    url: 'https://www.rittal.com/lt-en/products/climate-control/cooling-units/',
-    image: '/rittal/rittal-toptherm.jpg',
-  },
-  {
-    id: 'rittal-outdoor-cooling',
-    brand: 'Rittal',
-    brandColor: '#3E72C7',
-    seriesRu: 'Blue e+ Outdoor — Уличный кондиционер',
-    seriesEn: 'Blue e+ Outdoor — Outdoor Cooling Unit',
-    nameRu: 'Кондиционер уличный Blue e+ Outdoor',
-    nameEn: 'Blue e+ Outdoor Cooling Unit',
-    descRu: 'Кондиционер для уличных шкафов. Алюминий с UV-стойким покрытием. IP 56 / UL Type 4. Технология теплового насоса — экономия энергии до 75%. Испаритель конденсата встроен. Подходит для наружного, частичного или полного внутреннего монтажа.',
-    descEn: 'Cooling unit for outdoor enclosures. Aluminium with UV-resistant coating. IP 56 / UL Type 4. Heat pump technology — up to 75% energy savings. Integrated condensate evaporator. Suitable for external, partial or full internal mounting.',
-    specs: ['IP 56 / UL Type 4/3R/12', 'Алюминий AlMg3', 'Тепловой насос', 'Экономия до 75%', 'RAL 7035 UV-стойкий'],
-    specsEn: ['IP 56 / UL Type 4/3R/12', 'AlMg3 aluminium', 'Heat pump technology', 'Up to 75% energy savings', 'RAL 7035 UV-resistant'],
-    category: 'climate',
-    url: 'https://www.rittal.com/lt-en/products/climate-control/cooling-units/',
-    image: '/rittal/rittal-blue-eplus-outdoor.jpg',
-  },
-  {
-    id: 'rittal-fan-filter',
-    brand: 'Rittal',
-    brandColor: '#3E72C7',
-    seriesRu: 'Вентиляторные агрегаты',
-    seriesEn: 'Fan-and-Filter Units',
-    nameRu: 'Вентиляторный агрегат с фильтром',
-    nameEn: 'Fan-and-Filter Unit',
-    descRu: 'Вентиляция шкафа для умеренных тепловых нагрузок. Расход воздуха 20–1080 м³/ч. Smart-вентиляторы с EC-мотором — управление скоростью по температуре. Арт.: 3237.100 (20 м³/ч), 3238.100 (55 м³/ч).',
-    descEn: 'Enclosure ventilation for moderate heat loads. Air throughput 20–1080 m³/h. Smart fans with EC motor — speed control by temperature. Art.: 3237.100 (20 m³/h), 3238.100 (55 m³/h).',
-    specs: ['20–1080 м³/ч', 'IP54', 'EC Smart-вентилятор', 'RAL 7035', 'Фильтр заменяемый'],
-    specsEn: ['20–1080 m³/h', 'IP54', 'EC Smart fan', 'RAL 7035', 'Replaceable filter'],
-    category: 'climate',
-    url: 'https://www.rittal.com/lt-en/products/climate-control/',
-    image: '/product-cooling.svg',
-  },
-  {
-    id: 'rittal-heater',
-    brand: 'Rittal',
-    brandColor: '#3E72C7',
-    seriesRu: 'Обогреватели шкафов',
-    seriesEn: 'Enclosure Heaters',
-    nameRu: 'Обогреватель шкафа PTC',
-    nameEn: 'PTC Enclosure Heater',
-    descRu: 'PTC-обогреватели для защиты от конденсата и поддержания температуры в холодных помещениях и на улице. Алюминий анодированный, класс защиты II. Арт.: 3105.310–3105.370 (10–150 Вт). Рекомендуется с термостатом.',
-    descEn: 'PTC heaters for condensation protection and temperature maintenance in cold and outdoor environments. Anodised aluminium, protection class II. Art.: 3105.310–3105.370 (10–150 W). Recommended with thermostat.',
-    specs: ['10–150 Вт', 'IP 20', 'Алюминий анодированный', 'Класс защиты II', 'DIN-рейка / монтаж'],
-    specsEn: ['10–150 W', 'IP 20', 'Anodised aluminium', 'Protection class II', 'DIN rail / direct mount'],
-    category: 'climate',
-    url: 'https://www.rittal.com/lt-en/products/climate-control/',
-    image: '/rittal/rittal-heater.jpg',
-  },
-
-  // ── ZPAS ─────────────────────────────────────────────────
-  {
-    id: 'zpas-wz',
-    brand: 'ZPAS',
-    brandColor: '#1D4ED8',
-    seriesRu: 'Серия WZ',
-    seriesEn: 'WZ Series',
-    nameRu: 'Шкаф напольный WZ',
-    nameEn: 'WZ Floor Standing Cabinet',
-    descRu: 'Универсальные напольные шкафы польского производства. Применяются для автоматики, электроснабжения и связи. Широкий выбор размеров, лёгкая адаптация под проект.',
-    descEn: 'Universal floor-standing cabinets manufactured in Poland. Used for automation, power supply and telecom. Wide size range, easy project customization.',
-    specs: ['600–1200 мм (ширина)', 'IP54 / IP65', 'RAL 7035 / RAL 9005', 'Двойные двери', 'EN 62208'],
-    specsEn: ['600–1200 mm (width)', 'IP54 / IP65', 'RAL 7035 / RAL 9005', 'Double doors', 'EN 62208'],
-    category: 'cabinets',
-    url: 'https://www.zpas.pl/en/products/cabinets/',
-    image: '/product-cabinet.svg',
-    highlight: true,
-  },
-  {
-    id: 'zpas-szb',
-    brand: 'ZPAS',
-    brandColor: '#1D4ED8',
-    seriesRu: 'Серия SZB',
-    seriesEn: 'SZB Series',
-    nameRu: 'Серверная стойка SZB IT',
-    nameEn: 'SZB IT Server Rack',
-    descRu: 'Серверные стойки для оборудования ЦОД. Стеклянная передняя дверь, перфорированная задняя, боковые панели с замком. Полная совместимость с 19" оборудованием.',
-    descEn: 'Server racks for data center equipment. Glass front door, perforated rear, lockable side panels. Full compatibility with 19" equipment.',
-    specs: ['600×1000×2000 мм', '42U', 'IP20', 'Нагрузка: 1200 кг', '19" EIA-310'],
-    specsEn: ['600×1000×2000 mm', '42U', 'IP20', 'Load: 1200 kg', '19" EIA-310'],
-    category: 'racks',
-    url: 'https://www.zpas.pl/en/products/rack-cabinets/',
-    image: '/product-rack.svg',
-  },
-  {
-    id: 'zpas-wall',
-    brand: 'ZPAS',
-    brandColor: '#1D4ED8',
-    seriesRu: 'Серия SWG',
-    seriesEn: 'SWG Series',
-    nameRu: 'Настенный шкаф SWG',
-    nameEn: 'SWG Wall-Mount Enclosure',
-    descRu: 'Настенные шкафы для монтажа в коридорах, небольших помещениях и точках доступа. Петли съёмные, дно выбивное. Применяются для сетевого оборудования и патч-панелей.',
-    descEn: 'Wall-mount enclosures for corridors, small rooms and access points. Removable hinges, knock-out base. Used for network equipment and patch panels.',
-    specs: ['450×600 — 600×600 мм', '9U / 12U / 15U', 'IP20', 'Глубина 300–450 мм', 'RAL 9005'],
-    specsEn: ['450×600 — 600×600 mm', '9U / 12U / 15U', 'IP20', 'Depth 300–450 mm', 'RAL 9005'],
-    category: 'cabinets',
-    url: 'https://www.zpas.pl/en/products/wall-cabinets/',
-    image: '/product-wallcab.svg',
-  },
-  {
-    id: 'zpas-outdoor',
-    brand: 'ZPAS',
-    brandColor: '#1D4ED8',
-    seriesRu: 'Серия WN',
-    seriesEn: 'WN Series',
-    nameRu: 'Уличный шкаф WN (термостатированный)',
-    nameEn: 'WN Outdoor Thermostated Cabinet',
-    descRu: 'Шкафы для уличной установки с встроенным обогревом и вентиляцией. Двойные стенки с теплоизоляцией. Применяются на объектах связи, энергетики и транспорта.',
-    descEn: 'Outdoor cabinets with integrated heating and ventilation. Double-skin walls with thermal insulation. Used in telecom, energy and transport facilities.',
-    specs: ['IP55 / IP65', 'Рабочая Т°: −40…+55°C', 'Двойная стенка', 'Обогрев встроен', 'IEC 62208'],
-    specsEn: ['IP55 / IP65', 'Operating T°: −40…+55°C', 'Double-skin wall', 'Heating built-in', 'IEC 62208'],
-    category: 'cabinets',
-    url: 'https://www.zpas.pl/en/products/outdoor-cabinets/',
-    image: '/product-outdoor.svg',
-  },
-
-  // ── WEISS (Raised Floors) ────────────────────────────────
-  {
-    id: 'weiss-rd',
-    brand: 'Weiss',
-    brandColor: '#065F46',
-    seriesRu: 'Серия RD',
-    seriesEn: 'RD Series',
-    nameRu: 'Фальшпол RD (высокая нагрузка)',
-    nameEn: 'RD Raised Floor (High Load)',
-    descRu: 'Системы поднятых полов для дата-центров с нагрузкой до 1500 кг/м². Антистатическое покрытие, регулируемые опоры высотой 150–1000 мм. Полы соответствуют стандартам ЦОД Tier III–IV.',
-    descEn: 'Raised floor systems for data centers with load up to 1500 kg/m². Anti-static surface, adjustable pedestals 150–1000 mm. Compliant with Tier III–IV data center standards.',
-    specs: ['До 1500 кг/м²', 'Высота: 150–1000 мм', 'Размер плиты: 600×600 мм', 'Антистатика < 10⁶ Ом', 'EN 12825'],
-    specsEn: ['Up to 1500 kg/m²', 'Height: 150–1000 mm', 'Tile: 600×600 mm', 'Anti-static < 10⁶ Ω', 'EN 12825'],
-    category: 'floor',
-    url: 'https://www.weiss-dbs.com/',
-    image: '/product-floor.svg',
-    highlight: true,
-  },
-
-  // ── PHOENIX CONTACT / LEGRAND (Components) ───────────────
-  {
-    id: 'phoenix-terminals',
-    brand: 'Phoenix Contact',
-    brandColor: '#991B1B',
-    seriesRu: 'Серия CLIPLINE complete',
-    seriesEn: 'CLIPLINE complete Series',
-    nameRu: 'Клеммные блоки CLIPLINE',
-    nameEn: 'CLIPLINE Terminal Blocks',
-    descRu: 'Полная система монтажа на DIN-рейку: пружинные и винтовые клеммы, маркировка, мосты, концевые упоры. Сечение проводов от 0,08 до 185 мм². Сертификация UL, cUL, CSA.',
-    descEn: 'Complete DIN rail mounting system: spring-clamp and screw terminals, marking, bridges, end stops. Wire cross-section from 0.08 to 185 mm². UL, cUL, CSA certified.',
-    specs: ['0,08 — 185 мм²', '24 / 48 / 250 VDC', 'UL / CE / CSA', 'Пружинный / винтовой зажим', 'DIN EN 60947-7'],
-    specsEn: ['0.08 — 185 mm²', '24 / 48 / 250 VDC', 'UL / CE / CSA', 'Spring / screw clamp', 'DIN EN 60947-7'],
-    category: 'components',
-    url: 'https://www.phoenixcontact.com/en-lt/',
-    image: '/product-components.svg',
-  },
-  {
-    id: 'phoenix-psu',
-    brand: 'Phoenix Contact',
-    brandColor: '#991B1B',
-    seriesRu: 'Серия QUINT POWER',
-    seriesEn: 'QUINT POWER Series',
-    nameRu: 'Блоки питания QUINT POWER',
-    nameEn: 'QUINT POWER Power Supplies',
-    descRu: 'Промышленные источники питания DIN-рейка с активным мониторингом нагрузки. Защита от перегрузки, встроенный SFB (Selective Fuse Breaking). КПД до 95,5%.',
-    descEn: 'Industrial DIN rail power supplies with active load monitoring. Overload protection, integrated SFB (Selective Fuse Breaking). Efficiency up to 95.5%.',
-    specs: ['24 VDC (5–40 А)', 'КПД: 95,5%', 'SFB-технология', 'MTBF > 500 000 ч', 'IEC 62368-1'],
-    specsEn: ['24 VDC (5–40 A)', 'Efficiency: 95.5%', 'SFB technology', 'MTBF > 500,000 h', 'IEC 62368-1'],
-    category: 'components',
-    url: 'https://www.phoenixcontact.com/en-lt/',
-    image: '/product-components.svg',
-  },
-  {
-    id: 'legrand-xform',
-    brand: 'Legrand',
-    brandColor: '#1E40AF',
-    seriesRu: 'Серия XL³',
-    seriesEn: 'XL³ Series',
-    nameRu: 'Щит распределительный XL³',
-    nameEn: 'XL³ Distribution Board',
-    descRu: 'Модульная система щитового оборудования Legrand для промышленных и инфраструктурных объектов. Готовые решения для АВР, распределения питания и автоматики.',
-    descEn: 'Legrand\'s modular switchgear system for industrial and infrastructure facilities. Ready-made solutions for ATS, power distribution and automation.',
-    specs: ['160 / 400 / 800 / 4000 А', 'IP30 / IP43 / IP55', 'Медная / алюминиевая шина', 'Готов к АВР', 'IEC 61439'],
-    specsEn: ['160 / 400 / 800 / 4000 A', 'IP30 / IP43 / IP55', 'Copper / aluminium busbar', 'ATS ready', 'IEC 61439'],
-    category: 'components',
-    url: 'https://www.legrandgroup.com/en',
-    image: '/product-components.svg',
-  },
-];
+import { brands, allProducts } from '@/data';
+import { categories } from '@/data/categories';
 
 export default function ProductsCatalog() {
   const locale = useLocale();
   const isRu = locale === 'ru';
-  const [activeCategory, setActiveCategory] = useState('all');
-  const [activeBrand, setActiveBrand] = useState('all');
 
-  const brands = ['all', 'Rittal', 'ZPAS', 'Weiss', 'Phoenix Contact', 'Legrand'];
+  const [brand, setBrand] = useState('all');
+  const [category, setCategory] = useState('all');
+  const [query, setQuery] = useState('');
 
-  const filtered = products.filter(p => {
-    const catOk = activeCategory === 'all' || p.category === activeCategory;
-    const brandOk = activeBrand === 'all' || p.brand === activeBrand;
-    return catOk && brandOk;
-  });
+  const usedCategories = useMemo(() => {
+    const ids = new Set(allProducts.map((p) => p.categoryId));
+    return categories.filter((c) => ids.has(c.id));
+  }, []);
+
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return allProducts.filter((p) => {
+      if (brand !== 'all' && p.brand.id !== brand) return false;
+      if (category !== 'all' && p.categoryId !== category) return false;
+      if (q) {
+        const hay = `${p.name} ${p.nameEn} ${p.series} ${p.seriesEn} ${p.brand.name} ${(p.articles ?? []).map((a) => a.code).join(' ')}`.toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+  }, [brand, category, query]);
 
   return (
     <>
-      {/* ── Hero banner ── */}
-      <section className="bg-[#0A1628] pt-32 pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
-            backgroundSize: '80px 80px'
-          }}
-        />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#3E72C7] opacity-[0.05] rounded-full blur-[120px]" />
+      {/* Hero */}
+      <section className="bg-[#05070E] pt-32 pb-16 relative overflow-hidden">
+        <div className="orb orb-a w-[500px] h-[500px] -top-32 right-0"></div>
         <div className="container-main relative z-10">
-          <p className="text-[#3E72C7] text-xs font-semibold uppercase tracking-widest mb-4">
+          <p className="text-[#6FA0E0] text-xs font-semibold uppercase tracking-[0.16em] mb-4">
             {isRu ? 'Каталог оборудования' : 'Equipment Catalog'}
           </p>
-          <h1 className="font-display text-4xl md:text-6xl text-white mb-6">
+          <h1 className="font-display text-4xl md:text-6xl text-white mb-6 font-extrabold">
             {isRu ? 'Продукция' : 'Products'}
           </h1>
-          <p className="text-white/50 text-lg max-w-xl leading-relaxed">
+          <p className="text-white/60 text-lg max-w-2xl leading-relaxed">
             {isRu
               ? 'Официальный поставщик Rittal, ZPAS, Phoenix Contact, Legrand, Weiss и Hitec. Поставка в Казахстан, Узбекистан, Грузию и страны СНГ.'
               : 'Authorized distributor of Rittal, ZPAS, Phoenix Contact, Legrand, Weiss and Hitec. Delivery to Kazakhstan, Uzbekistan, Georgia and CIS countries.'}
@@ -439,147 +51,116 @@ export default function ProductsCatalog() {
         </div>
       </section>
 
-      {/* ── Filters ── */}
-      <section className="bg-[#F7F6F3] border-b border-[#E2DDD6] sticky top-[80px] z-40">
-        <div className="container-main py-3">
-          <div className="flex flex-col gap-3">
-            {/* Category filters */}
-            <div className="flex flex-wrap gap-1.5">
-              {categories.map(cat => (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
-                  className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition-all ${
-                    activeCategory === cat.id
-                      ? 'bg-[#0A1628] text-white border-[#0A1628]'
-                      : 'bg-white text-[#0A1628]/60 border-[#E2DDD6] hover:border-[#0A1628]/30'
-                  }`}
-                >
-                  {isRu ? cat.labelRu : cat.labelEn}
-                </button>
-              ))}
-            </div>
-            {/* Brand filters */}
-            <div className="flex flex-wrap gap-1.5">
-              {brands.map(brand => (
-                <button
-                  key={brand}
-                  onClick={() => setActiveBrand(brand)}
-                  className={`text-xs font-semibold px-3 py-1.5 rounded border transition-all ${
-                    activeBrand === brand
-                      ? 'bg-[#3E72C7] text-white border-[#3E72C7]'
-                      : 'bg-white text-[#0A1628]/50 border-[#E2DDD6] hover:border-[#3E72C7]/40'
-                  }`}
-                >
-                  {brand === 'all' ? (isRu ? 'Все бренды' : 'All brands') : brand}
-                </button>
-              ))}
-            </div>
+      {/* Filters */}
+      <section className="bg-[#0A1628] border-y border-white/10 sticky top-[80px] z-40">
+        <div className="container-main py-4 space-y-3">
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder={isRu ? 'Поиск по названию, серии, артикулу…' : 'Search by name, series, article…'}
+            className="w-full md:max-w-sm bg-white/[0.06] border border-white/15 rounded-lg px-4 py-2.5 text-white text-sm placeholder-white/40 focus:outline-none focus:border-[#3E72C7]"
+          />
+          <div className="flex flex-wrap gap-1.5">
+            <FilterChip active={category === 'all'} onClick={() => setCategory('all')}>
+              {isRu ? 'Все категории' : 'All categories'}
+            </FilterChip>
+            {usedCategories.map((c) => (
+              <FilterChip key={c.id} active={category === c.id} onClick={() => setCategory(c.id)}>
+                {isRu ? c.label : c.labelEn}
+              </FilterChip>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-1.5">
+            <FilterChip subtle active={brand === 'all'} onClick={() => setBrand('all')}>
+              {isRu ? 'Все бренды' : 'All brands'}
+            </FilterChip>
+            {brands.map((b) => (
+              <FilterChip key={b.id} subtle active={brand === b.id} onClick={() => setBrand(b.id)}>
+                {b.name}
+              </FilterChip>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── Products grid ── */}
-      <section className="section bg-[#F7F6F3]">
+      {/* Grid */}
+      <section className="section bg-[#05070E]">
         <div className="container-main">
-          {/* Count */}
-          <p className="text-[#0A1628]/40 text-sm mb-8">
+          <p className="text-white/40 text-sm mb-8">
             {isRu ? `Показано: ${filtered.length} позиций` : `Showing: ${filtered.length} items`}
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
-            {filtered.map(product => (
-              <div
-                key={product.id}
-                className={`group bg-white rounded-2xl border overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col ${
-                  product.highlight ? 'border-[#3E72C7]/30 ring-1 ring-[#3E72C7]/20' : 'border-[#E2DDD6]'
-                }`}
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+            {filtered.map((p) => (
+              <Link
+                key={`${p.brand.id}-${p.id}`}
+                href={`/${locale}/products/${p.brand.id}/${p.id}`}
+                className="group bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:border-[#3E72C7]/50"
               >
-                {/* Image */}
-                <div className="relative h-44 overflow-hidden bg-[#F0EDE8]">
+                <div className="relative h-44 overflow-hidden bg-[#0A1628]">
                   <img
-                    src={product.image}
-                    alt={isRu ? product.nameRu : product.nameEn}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    src={p.image}
+                    alt={isRu ? p.name : p.nameEn}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div
-                    className="absolute inset-0"
-                    style={{ background: `linear-gradient(135deg, ${product.brandColor}40 0%, transparent 60%)` }}
-                  />
-                  {/* Brand badge on image */}
-                  <div className="absolute top-3 left-3">
-                    <span
-                      className="text-xs font-bold px-2.5 py-1 rounded-full text-white shadow-sm"
-                      style={{ background: product.brandColor }}
-                    >
-                      {product.brand}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#05070E]/80 to-transparent" />
+                  <span
+                    className="absolute top-3 left-3 text-xs font-bold px-2.5 py-1 rounded-full text-white shadow-sm"
+                    style={{ background: p.brand.color }}
+                  >
+                    {p.brand.name}
+                  </span>
+                  {p.featured && (
+                    <span className="absolute top-3 right-3 text-xs font-semibold text-white bg-[#3E72C7] px-2 py-0.5 rounded shadow-sm">
+                      {isRu ? 'Топ' : 'Top'}
                     </span>
-                  </div>
-                  {product.highlight && (
-                    <div className="absolute top-3 right-3">
-                      <span className="text-xs font-semibold text-white bg-[#3E72C7] px-2 py-0.5 rounded shadow-sm">
-                        {isRu ? 'Топ продаж' : 'Best seller'}
-                      </span>
-                    </div>
                   )}
                 </div>
 
-                {/* Card header */}
-                <div className="p-6 pb-4 flex-1">
-                  {/* Brand + series row */}
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="text-xs text-[#0A1628]/40 font-medium" style={{ color: product.brandColor }}>
-                      {isRu ? product.seriesRu : product.seriesEn}
-                    </span>
-                  </div>
-
-                  {/* Name */}
-                  <h3 className="font-display text-lg text-[#0A1628] mb-3 leading-snug group-hover:text-[#3E72C7] transition-colors">
-                    {isRu ? product.nameRu : product.nameEn}
+                <div className="p-6 flex-1 flex flex-col">
+                  <span className="text-xs font-medium mb-2" style={{ color: p.brand.color }}>
+                    {isRu ? p.series : p.seriesEn}
+                  </span>
+                  <h3 className="font-display text-lg text-white mb-3 leading-snug group-hover:text-[#6FA0E0] transition-colors">
+                    {isRu ? p.name : p.nameEn}
                   </h3>
-
-                  {/* Description */}
-                  <p className="text-[#0A1628]/55 text-sm leading-relaxed mb-4">
-                    {isRu ? product.descRu : product.descEn}
-                  </p>
-
-                  {/* Specs */}
-                  <div className="flex flex-wrap gap-1.5">
-                    {(isRu ? product.specs : product.specsEn).map(spec => (
-                      <span
-                        key={spec}
-                        className="text-xs px-2.5 py-1 rounded-full bg-[#F7F6F3] border border-[#E2DDD6] text-[#0A1628]/60 font-medium"
-                      >
-                        {spec}
+                  <div className="flex flex-wrap gap-1.5 mt-auto pt-2">
+                    {(isRu ? p.specs : p.specsEn).slice(0, 3).map((s) => (
+                      <span key={s} className="text-xs px-2.5 py-1 rounded-full bg-white/[0.06] border border-white/10 text-white/65">
+                        {s}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                {/* Card footer */}
-                <div className="px-6 pb-6 pt-4 border-t border-[#F0EDE8]">
-                  <Link
-                    href={`/${locale}/contacts`}
-                    className="btn-primary text-xs py-2.5 px-5 w-full text-center block"
-                    style={{ fontSize: '13px' }}
-                  >
-                    {isRu ? 'Запросить КП' : 'Request Quote'}
-                  </Link>
+                <div className="px-6 pb-5 pt-1">
+                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#6FA0E0]">
+                    {isRu ? 'Подробнее' : 'Details'}
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
-          {/* CTA block */}
-          <div className="mt-16 bg-[#0A1628] rounded-2xl p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          {filtered.length === 0 && (
+            <p className="text-white/50 text-center py-16">
+              {isRu ? 'Ничего не найдено. Сбросьте фильтры или напишите нам — поставим под заказ.' : 'Nothing found. Reset filters or contact us — we supply on request.'}
+            </p>
+          )}
+
+          {/* CTA */}
+          <div className="mt-16 bg-gradient-to-br from-[#3E72C7]/15 to-[#1F4E8C]/10 border border-[#3E72C7]/30 rounded-2xl p-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h2 className="font-display text-2xl md:text-3xl text-white mb-2">
-                {isRu ? 'Не нашли нужную позицию?' : 'Can\'t find what you need?'}
+                {isRu ? 'Не нашли нужную позицию?' : "Can't find what you need?"}
               </h2>
-              <p className="text-white/45 text-sm">
+              <p className="text-white/55 text-sm">
                 {isRu
-                  ? 'Поставляем любое оборудование из каталогов Rittal, ZPAS, Phoenix Contact и других партнёров'
-                  : 'We supply any equipment from the catalogs of Rittal, ZPAS, Phoenix Contact and other partners'}
+                  ? 'Поставляем любое оборудование из каталогов наших партнёров'
+                  : 'We supply any equipment from our partners’ catalogs'}
               </p>
             </div>
             <Link href={`/${locale}/contacts`} className="btn-primary whitespace-nowrap">
@@ -589,5 +170,34 @@ export default function ProductsCatalog() {
         </div>
       </section>
     </>
+  );
+}
+
+function FilterChip({
+  active,
+  subtle,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  subtle?: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
+  const base = 'text-xs font-semibold px-3.5 py-1.5 rounded-full border transition-all';
+  if (active) {
+    return (
+      <button onClick={onClick} className={`${base} bg-[#3E72C7] text-white border-[#3E72C7]`}>
+        {children}
+      </button>
+    );
+  }
+  return (
+    <button
+      onClick={onClick}
+      className={`${base} bg-white/[0.04] ${subtle ? 'text-white/55' : 'text-white/70'} border-white/15 hover:border-[#3E72C7]/50 hover:text-white`}
+    >
+      {children}
+    </button>
   );
 }
