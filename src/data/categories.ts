@@ -15,7 +15,9 @@ export const categories: Category[] = [
   { id: 'components',  label: 'Компоненты щитов',   labelEn: 'Components',      icon: 'M9 3.75v16.5M15 3.75v16.5M3.75 9h16.5M3.75 15h16.5M5.25 3.75h13.5a1.5 1.5 0 011.5 1.5v13.5a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V5.25a1.5 1.5 0 011.5-1.5z' },
   { id: 'ups',         label: 'ИБП',                labelEn: 'UPS',             icon: 'M13.5 3l-7.5 9h6l-1.5 9 7.5-9h-6l1.5-9z' },
   { id: 'outdoor',     label: 'Уличные шкафы',      labelEn: 'Outdoor',         icon: 'M3.75 21h16.5M5.25 21V8.25L12 3.75l6.75 4.5V21M9.75 21v-6h4.5v6' },
-  { id: 'accessories', label: 'Аксессуары',         labelEn: 'Accessories',     icon: 'M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63' },
+  { id: 'accessories', label: 'Аксессуары',              labelEn: 'Accessories',     icon: 'M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63' },
+  { id: 'batteries',  label: 'Аккумуляторы',             labelEn: 'Batteries',       icon: 'M3.75 7.5h16.5M3.75 16.5h16.5M5.25 7.5V5.25A2.25 2.25 0 017.5 3h9a2.25 2.25 0 012.25 2.25V7.5m-13.5 9v2.25A2.25 2.25 0 007.5 21h9a2.25 2.25 0 002.25-2.25V16.5M12 7.5v9' },
+  { id: 'generators', label: 'Дизельные генераторы',     labelEn: 'Diesel Generators', icon: 'M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z' },
 ];
 
 export const categoryById = (id: CategoryId): Category =>
