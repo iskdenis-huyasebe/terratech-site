@@ -11,7 +11,7 @@ const products = [
     brands: 'Rittal · ZPAS',
     specs: ['IP54 / IP66', 'от 6U до 47U', 'RAL 7035', 'Нержавеющая сталь'],
     specsEn: ['IP54 / IP66', '6U to 47U', 'RAL 7035', 'Stainless Steel'],
-    image: 'https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=800&h=600&fit=crop&q=85&auto=format',
+    image: 'https://d8j0ntlcm91z4.cloudfront.net/user_3Ed1MfQuMeZ6hFbOxes5FTm4qpI/hf_20260605_080404_6806b284-38fb-4527-932b-68bf1a2ab763.png',
     color: '#E8500A',
   },
   {
@@ -23,7 +23,7 @@ const products = [
     brands: 'Phoenix Contact · Legrand',
     specs: ['DIN-рейка 35мм', '24VDC / 48VDC', 'до 63А', 'UL / CE'],
     specsEn: ['DIN Rail 35mm', '24VDC / 48VDC', 'up to 63A', 'UL / CE'],
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop&q=85&auto=format',
+    image: 'https://d8j0ntlcm91z4.cloudfront.net/user_3Ed1MfQuMeZ6hFbOxes5FTm4qpI/hf_20260605_080406_c97a1f23-581b-4eaa-b22f-8a48c9ebd6f0.png',
     color: '#E8500A',
   },
   {
@@ -35,7 +35,7 @@ const products = [
     brands: 'Weiss · Rittal',
     specs: ['до 1500 кг/м²', 'Высота 150–1000мм', 'Антистатика', 'Пожаростойкость'],
     specsEn: ['up to 1500 kg/m²', 'Height 150–1000mm', 'Anti-static', 'Fire resistant'],
-    image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&h=600&fit=crop&q=85&auto=format',
+    image: 'https://d8j0ntlcm91z4.cloudfront.net/user_3Ed1MfQuMeZ6hFbOxes5FTm4qpI/hf_20260605_080407_e4469790-9fef-4f12-a70f-8110e3fdb6e0.png',
     color: '#E8500A',
   },
   {
@@ -47,7 +47,7 @@ const products = [
     brands: 'Hitec',
     specs: ['1–800 кВА', 'Онлайн (двойное преобразование)', 'КПД до 96%', 'SNMP мониторинг'],
     specsEn: ['1–800 kVA', 'Online (double conversion)', 'Efficiency up to 96%', 'SNMP monitoring'],
-    image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&h=600&fit=crop&q=85&auto=format',
+    image: 'https://d8j0ntlcm91z4.cloudfront.net/user_3Ed1MfQuMeZ6hFbOxes5FTm4qpI/hf_20260605_080409_f551a738-3a56-44be-b467-61035cfec1d7.png',
     color: '#E8500A',
   },
 ];
