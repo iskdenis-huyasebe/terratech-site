@@ -5,9 +5,10 @@ import legrand from './brands/legrand';
 import zpas from './brands/zpas';
 import weiss from './brands/weiss';
 import hitec from './brands/hitec';
+import rid from './brands/rid';
 
 // Register every brand here — the only line you touch when adding a new brand file.
-export const brands: Brand[] = [rittal, phoenixContact, legrand, zpas, weiss, hitec];
+export const brands: Brand[] = [rittal, phoenixContact, legrand, zpas, weiss, hitec, rid];
 
 export interface CatalogProduct extends Product {
   brand: Brand;
