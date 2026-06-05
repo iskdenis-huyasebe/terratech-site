@@ -22,11 +22,11 @@ export default async function Image() {
         }}
       >
         {/* Orange accent line */}
-        <div style={{ width: 80, height: 4, background: '#E8500A', marginBottom: 40 }} />
+        <div style={{ width: 80, height: 4, background: '#3E72C7', marginBottom: 40 }} />
 
         {/* Logo text */}
         <div style={{ fontSize: 64, fontWeight: 800, color: 'white', marginBottom: 20, letterSpacing: -2 }}>
-          TERRA<span style={{ color: '#E8500A' }}>TECH</span>
+          TERRA<span style={{ color: '#3E72C7' }}>TECH</span>
         </div>
 
         {/* Tagline */}

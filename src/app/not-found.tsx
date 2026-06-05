@@ -10,7 +10,7 @@ export default function NotFound() {
           backgroundSize: '80px 80px',
         }}
       />
-      <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-[#E8500A] rounded-full opacity-[0.05] blur-[150px]" />
+      <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-[#3E72C7] rounded-full opacity-[0.05] blur-[150px]" />
 
       <div className="relative z-10 text-center max-w-lg">
         <p className="font-display text-[140px] md:text-[200px] text-white/10 leading-none mb-4">

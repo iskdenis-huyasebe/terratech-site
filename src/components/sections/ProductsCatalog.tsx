@@ -35,7 +35,7 @@ const products: Product[] = [
   {
     id: 'rittal-vx25',
     brand: 'Rittal',
-    brandColor: '#E8500A',
+    brandColor: '#3E72C7',
     seriesRu: 'VX25 — Шкафная система',
     seriesEn: 'VX25 — Baying Enclosure System',
     nameRu: 'Шкаф секционируемый VX25',
@@ -52,7 +52,7 @@ const products: Product[] = [
   {
     id: 'rittal-vx-se',
     brand: 'Rittal',
-    brandColor: '#E8500A',
+    brandColor: '#3E72C7',
     seriesRu: 'VX SE — Отдельностоящий шкаф',
     seriesEn: 'VX SE — Free-standing Enclosure',
     nameRu: 'Шкаф отдельностоящий VX SE',
@@ -68,7 +68,7 @@ const products: Product[] = [
   {
     id: 'rittal-ax',
     brand: 'Rittal',
-    brandColor: '#E8500A',
+    brandColor: '#3E72C7',
     seriesRu: 'AX — Компактный корпус',
     seriesEn: 'AX — Compact Enclosure',
     nameRu: 'Компактный корпус AX',
@@ -84,7 +84,7 @@ const products: Product[] = [
   {
     id: 'rittal-vx-it',
     brand: 'Rittal',
-    brandColor: '#E8500A',
+    brandColor: '#3E72C7',
     seriesRu: 'VX IT — Серверная стойка',
     seriesEn: 'VX IT — Network/Server Rack',
     nameRu: 'Серверная стойка VX IT',
@@ -101,7 +101,7 @@ const products: Product[] = [
   {
     id: 'rittal-lcp-dx',
     brand: 'Rittal',
-    brandColor: '#E8500A',
+    brandColor: '#3E72C7',
     seriesRu: 'LCP DX — Жидкостное охлаждение',
     seriesEn: 'LCP DX — Liquid Cooling Package',
     nameRu: 'Жидкостный пакет охлаждения LCP DX',
@@ -117,7 +117,7 @@ const products: Product[] = [
   {
     id: 'rittal-blue-e-plus',
     brand: 'Rittal',
-    brandColor: '#E8500A',
+    brandColor: '#3E72C7',
     seriesRu: 'Blue e+ — Кондиционер шкафа',
     seriesEn: 'Blue e+ — Enclosure Cooling Unit',
     nameRu: 'Кондиционер Blue e+ (настенный/крышный)',
@@ -134,7 +134,7 @@ const products: Product[] = [
   {
     id: 'rittal-ax-ss',
     brand: 'Rittal',
-    brandColor: '#E8500A',
+    brandColor: '#3E72C7',
     seriesRu: 'AX — Нержавеющая сталь',
     seriesEn: 'AX — Stainless Steel',
     nameRu: 'Корпус AX нержавеющая сталь',
@@ -150,7 +150,7 @@ const products: Product[] = [
   {
     id: 'rittal-outdoor',
     brand: 'Rittal',
-    brandColor: '#E8500A',
+    brandColor: '#3E72C7',
     seriesRu: 'Уличные шкафы — Outdoor',
     seriesEn: 'Outdoor Enclosures',
     nameRu: 'Уличный шкаф (напольный / настенный)',
@@ -166,7 +166,7 @@ const products: Product[] = [
   {
     id: 'rittal-hd',
     brand: 'Rittal',
-    brandColor: '#E8500A',
+    brandColor: '#3E72C7',
     seriesRu: 'HD — Hygienic Design',
     seriesEn: 'HD — Hygienic Design',
     nameRu: 'Шкаф Hygienic Design (пищевая пром.)',
@@ -183,7 +183,7 @@ const products: Product[] = [
   {
     id: 'rittal-toptherm-wall',
     brand: 'Rittal',
-    brandColor: '#E8500A',
+    brandColor: '#3E72C7',
     seriesRu: 'TopTherm Blue e — Настенный',
     seriesEn: 'TopTherm Blue e — Wall-mounted',
     nameRu: 'Кондиционер настенный TopTherm Blue e',
@@ -200,7 +200,7 @@ const products: Product[] = [
   {
     id: 'rittal-toptherm-roof',
     brand: 'Rittal',
-    brandColor: '#E8500A',
+    brandColor: '#3E72C7',
     seriesRu: 'TopTherm Blue e — Крышный',
     seriesEn: 'TopTherm Blue e — Roof-mounted',
     nameRu: 'Кондиционер крышный TopTherm Blue e',
@@ -216,7 +216,7 @@ const products: Product[] = [
   {
     id: 'rittal-outdoor-cooling',
     brand: 'Rittal',
-    brandColor: '#E8500A',
+    brandColor: '#3E72C7',
     seriesRu: 'Blue e+ Outdoor — Уличный кондиционер',
     seriesEn: 'Blue e+ Outdoor — Outdoor Cooling Unit',
     nameRu: 'Кондиционер уличный Blue e+ Outdoor',
@@ -232,7 +232,7 @@ const products: Product[] = [
   {
     id: 'rittal-fan-filter',
     brand: 'Rittal',
-    brandColor: '#E8500A',
+    brandColor: '#3E72C7',
     seriesRu: 'Вентиляторные агрегаты',
     seriesEn: 'Fan-and-Filter Units',
     nameRu: 'Вентиляторный агрегат с фильтром',
@@ -248,7 +248,7 @@ const products: Product[] = [
   {
     id: 'rittal-heater',
     brand: 'Rittal',
-    brandColor: '#E8500A',
+    brandColor: '#3E72C7',
     seriesRu: 'Обогреватели шкафов',
     seriesEn: 'Enclosure Heaters',
     nameRu: 'Обогреватель шкафа PTC',
@@ -423,9 +423,9 @@ export default function ProductsCatalog() {
             backgroundSize: '80px 80px'
           }}
         />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#E8500A] opacity-[0.05] rounded-full blur-[120px]" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#3E72C7] opacity-[0.05] rounded-full blur-[120px]" />
         <div className="container-main relative z-10">
-          <p className="text-[#E8500A] text-xs font-semibold uppercase tracking-widest mb-4">
+          <p className="text-[#3E72C7] text-xs font-semibold uppercase tracking-widest mb-4">
             {isRu ? 'Каталог оборудования' : 'Equipment Catalog'}
           </p>
           <h1 className="font-display text-4xl md:text-6xl text-white mb-6">
@@ -467,8 +467,8 @@ export default function ProductsCatalog() {
                   onClick={() => setActiveBrand(brand)}
                   className={`text-xs font-semibold px-3 py-1.5 rounded border transition-all ${
                     activeBrand === brand
-                      ? 'bg-[#E8500A] text-white border-[#E8500A]'
-                      : 'bg-white text-[#0A1628]/50 border-[#E2DDD6] hover:border-[#E8500A]/40'
+                      ? 'bg-[#3E72C7] text-white border-[#3E72C7]'
+                      : 'bg-white text-[#0A1628]/50 border-[#E2DDD6] hover:border-[#3E72C7]/40'
                   }`}
                 >
                   {brand === 'all' ? (isRu ? 'Все бренды' : 'All brands') : brand}
@@ -492,7 +492,7 @@ export default function ProductsCatalog() {
               <div
                 key={product.id}
                 className={`group bg-white rounded-2xl border overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col ${
-                  product.highlight ? 'border-[#E8500A]/30 ring-1 ring-[#E8500A]/20' : 'border-[#E2DDD6]'
+                  product.highlight ? 'border-[#3E72C7]/30 ring-1 ring-[#3E72C7]/20' : 'border-[#E2DDD6]'
                 }`}
               >
                 {/* Image */}
@@ -517,7 +517,7 @@ export default function ProductsCatalog() {
                   </div>
                   {product.highlight && (
                     <div className="absolute top-3 right-3">
-                      <span className="text-xs font-semibold text-white bg-[#E8500A] px-2 py-0.5 rounded shadow-sm">
+                      <span className="text-xs font-semibold text-white bg-[#3E72C7] px-2 py-0.5 rounded shadow-sm">
                         {isRu ? 'Топ продаж' : 'Best seller'}
                       </span>
                     </div>
@@ -534,7 +534,7 @@ export default function ProductsCatalog() {
                   </div>
 
                   {/* Name */}
-                  <h3 className="font-display text-lg text-[#0A1628] mb-3 leading-snug group-hover:text-[#E8500A] transition-colors">
+                  <h3 className="font-display text-lg text-[#0A1628] mb-3 leading-snug group-hover:text-[#3E72C7] transition-colors">
                     {isRu ? product.nameRu : product.nameEn}
                   </h3>
 

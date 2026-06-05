@@ -7,7 +7,7 @@ const brands = [
   {
     name: 'Rittal',
     country: 'Германия', countryEn: 'Germany',
-    color: '#E8500A',
+    color: '#3E72C7',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Rittal_logo.svg/320px-Rittal_logo.svg.png',
     image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
     desc: 'Шкафы автоматики, серверные стойки, системы климатизации для промышленных объектов и ЦОД',
@@ -105,7 +105,7 @@ export default function BrandsCarousel() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 md:mb-10">
           <div>
-            <p className="text-[#E8500A] text-xs font-semibold uppercase tracking-widest mb-2">
+            <p className="text-[#3E72C7] text-xs font-semibold uppercase tracking-widest mb-2">
               {isRu ? 'Официальный поставщик' : 'Authorized Supplier'}
             </p>
             <h2 className="font-display text-3xl md:text-4xl text-white">

@@ -12,16 +12,16 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-[#E8500A] rounded-sm flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#3E72C7] rounded-sm flex items-center justify-center">
                 <span className="text-white font-bold text-sm">T</span>
               </div>
-              <span className="font-bold text-xl">Terra<span className="text-[#E8500A]">tech</span></span>
+              <span className="font-bold text-xl">Terra<span className="text-[#3E72C7]">tech</span></span>
             </div>
             <p className="text-white/60 text-sm leading-relaxed max-w-xs">
               {t('footer.desc')}
             </p>
             <div className="mt-6 flex items-center gap-3">
-              <a href="mailto:dkislenko@terradstr.com" className="text-[#E8500A] hover:text-[#FF6B2B] text-sm font-medium transition-colors">
+              <a href="mailto:dkislenko@terradstr.com" className="text-[#3E72C7] hover:text-[#6FA0E0] text-sm font-medium transition-colors">
                 dkislenko@terradstr.com
               </a>
             </div>

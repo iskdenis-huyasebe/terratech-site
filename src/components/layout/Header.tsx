@@ -40,14 +40,14 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href={`/${locale}`} className="flex items-center gap-2 flex-shrink-0">
-            <div className="w-8 h-8 bg-[#E8500A] rounded-sm flex items-center justify-center">
+            <div className="w-8 h-8 bg-[#3E72C7] rounded-sm flex items-center justify-center">
               <span className="text-white font-bold text-sm">T</span>
             </div>
             <span className={clsx(
               'font-bold text-xl tracking-tight transition-colors',
               scrolled ? 'text-[#0A1628]' : 'text-white'
             )}>
-              Terra<span className="text-[#E8500A]">tech</span>
+              Terra<span className="text-[#3E72C7]">tech</span>
             </span>
           </Link>
 
@@ -58,9 +58,9 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={clsx(
-                  'text-sm font-medium transition-colors hover:text-[#E8500A] whitespace-nowrap',
+                  'text-sm font-medium transition-colors hover:text-[#3E72C7] whitespace-nowrap',
                   scrolled ? 'text-[#0A1628]' : 'text-white/90',
-                  pathname === link.href && 'text-[#E8500A]'
+                  pathname === link.href && 'text-[#3E72C7]'
                 )}
               >
                 {link.label}
@@ -75,7 +75,7 @@ export default function Header() {
               className={clsx(
                 'text-sm font-semibold px-3 py-1.5 rounded border transition-all',
                 scrolled
-                  ? 'border-[#E2DDD6] text-[#0A1628] hover:border-[#E8500A] hover:text-[#E8500A]'
+                  ? 'border-[#E2DDD6] text-[#0A1628] hover:border-[#3E72C7] hover:text-[#3E72C7]'
                   : 'border-white/40 text-white hover:border-white'
               )}
             >
@@ -108,8 +108,8 @@ export default function Header() {
                 className={clsx(
                   'flex items-center px-4 py-3.5 text-sm font-medium transition-colors rounded-lg mx-2',
                   pathname === link.href
-                    ? 'text-[#E8500A] bg-[#E8500A]/5'
-                    : 'text-[#0A1628] hover:text-[#E8500A] hover:bg-[#F7F6F3]'
+                    ? 'text-[#3E72C7] bg-[#3E72C7]/5'
+                    : 'text-[#0A1628] hover:text-[#3E72C7] hover:bg-[#F7F6F3]'
                 )}>
                 {link.label}
               </Link>
@@ -117,7 +117,7 @@ export default function Header() {
             <div className="px-4 pt-3 pb-1 flex items-center gap-3 border-t border-[#E2DDD6] mt-2">
               <Link href={switchPath}
                 onClick={() => setMobileOpen(false)}
-                className="text-sm font-semibold border border-[#E2DDD6] px-3 py-2 rounded text-[#0A1628] hover:border-[#E8500A] hover:text-[#E8500A] transition-colors">
+                className="text-sm font-semibold border border-[#E2DDD6] px-3 py-2 rounded text-[#0A1628] hover:border-[#3E72C7] hover:text-[#3E72C7] transition-colors">
                 {otherLocale.toUpperCase()}
               </Link>
               <Link href={`/${locale}/contacts`}

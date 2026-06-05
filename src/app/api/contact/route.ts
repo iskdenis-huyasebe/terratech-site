@@ -109,7 +109,7 @@ export async function POST(req: Request) {
             <table style="width: 100%; border-collapse: collapse;">
               <tr><td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666; width: 120px;">Имя</td><td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: 600;">${esc(name)}</td></tr>
               ${company ? `<tr><td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666;">Компания</td><td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: 600;">${esc(company)}</td></tr>` : ''}
-              <tr><td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666;">Email</td><td style="padding: 10px 0; border-bottom: 1px solid #eee;"><a href="mailto:${esc(email)}" style="color: #E8500A;">${esc(email)}</a></td></tr>
+              <tr><td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666;">Email</td><td style="padding: 10px 0; border-bottom: 1px solid #eee;"><a href="mailto:${esc(email)}" style="color: #3E72C7;">${esc(email)}</a></td></tr>
               ${phone ? `<tr><td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666;">Телефон</td><td style="padding: 10px 0; border-bottom: 1px solid #eee;">${esc(phone)}</td></tr>` : ''}
               <tr><td style="padding: 10px 0; color: #666; vertical-align: top;">Сообщение</td><td style="padding: 10px 0; white-space: pre-wrap;">${esc(message)}</td></tr>
             </table>
@@ -145,12 +145,12 @@ export async function POST(req: Request) {
             </p>
             <p style="color: #444; line-height: 1.6;">
               ${isRu
-                ? 'Если вопрос срочный — напишите нам напрямую в WhatsApp или Telegram: <a href="https://wa.me/77775755748" style="color: #E8500A;">+7 777 575 5748</a>'
-                : 'For urgent matters, contact us directly via WhatsApp or Telegram: <a href="https://wa.me/77775755748" style="color: #E8500A;">+7 777 575 5748</a>'
+                ? 'Если вопрос срочный — напишите нам напрямую в WhatsApp или Telegram: <a href="https://wa.me/77775755748" style="color: #3E72C7;">+7 777 575 5748</a>'
+                : 'For urgent matters, contact us directly via WhatsApp or Telegram: <a href="https://wa.me/77775755748" style="color: #3E72C7;">+7 777 575 5748</a>'
               }
             </p>
             <p style="color: #999; font-size: 13px; margin-top: 32px; border-top: 1px solid #eee; padding-top: 16px;">
-              Terratech · <a href="https://terradstr.com" style="color: #E8500A;">terradstr.com</a>
+              Terratech · <a href="https://terradstr.com" style="color: #3E72C7;">terradstr.com</a>
             </p>
           </div>
         `,

@@ -17,12 +17,12 @@ export default function GeographySection() {
   return (
     <section className="section bg-[#0A1628] relative overflow-hidden">
       {/* BG accent */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#E8500A] opacity-[0.04] rounded-full blur-[150px]"></div>
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#3E72C7] opacity-[0.04] rounded-full blur-[150px]"></div>
 
       <div className="container-main relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-14">
           <div>
-            <p className="text-[#E8500A] text-xs font-semibold uppercase tracking-widest mb-3">
+            <p className="text-[#3E72C7] text-xs font-semibold uppercase tracking-widest mb-3">
               {locale === 'ru' ? 'Поставки' : 'Deliveries'}
             </p>
             <h2 className="font-display text-4xl md:text-5xl text-white">
@@ -36,8 +36,8 @@ export default function GeographySection() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-10 md:mb-12">
           {markets.map((market) => (
-            <div key={market.name} className="group bg-white/[0.04] border border-white/10 rounded-2xl p-5 md:p-6 text-center hover:bg-white/[0.07] hover:border-[#E8500A]/40 hover:-translate-y-1 transition-all duration-300">
-              <span className="block w-12 h-12 mx-auto mb-4 rounded-full overflow-hidden ring-2 ring-white/15 group-hover:ring-[#E8500A]/50 transition-all">
+            <div key={market.name} className="group bg-white/[0.04] border border-white/10 rounded-2xl p-5 md:p-6 text-center hover:bg-white/[0.07] hover:border-[#3E72C7]/40 hover:-translate-y-1 transition-all duration-300">
+              <span className="block w-12 h-12 mx-auto mb-4 rounded-full overflow-hidden ring-2 ring-white/15 group-hover:ring-[#3E72C7]/50 transition-all">
                 <img
                   src={`https://flagcdn.com/w160/${market.code}.png`}
                   alt={locale === 'ru' ? market.name : market.nameEn}

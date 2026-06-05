@@ -208,9 +208,9 @@ export default function ProjectsPage() {
             backgroundSize: '80px 80px',
           }}
         />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#E8500A] opacity-[0.05] rounded-full blur-[120px]" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#3E72C7] opacity-[0.05] rounded-full blur-[120px]" />
         <div className="container-main relative z-10">
-          <p className="text-[#E8500A] text-xs font-semibold uppercase tracking-widest mb-4">
+          <p className="text-[#3E72C7] text-xs font-semibold uppercase tracking-widest mb-4">
             {isRu ? 'Реализованные проекты' : 'Completed Projects'}
           </p>
           <h1 className="font-display text-4xl md:text-6xl text-white mb-6 max-w-2xl">
@@ -268,7 +268,7 @@ export default function ProjectsPage() {
               <article
                 key={project.id}
                 className={`group bg-white rounded-2xl overflow-hidden border transition-all hover:shadow-xl ${
-                  project.featured ? 'border-[#E8500A]/30 ring-1 ring-[#E8500A]/10' : 'border-[#E2DDD6]'
+                  project.featured ? 'border-[#3E72C7]/30 ring-1 ring-[#3E72C7]/10' : 'border-[#E2DDD6]'
                 }`}
               >
                 {/* Image */}
@@ -286,7 +286,7 @@ export default function ProjectsPage() {
                       {isRu ? project.categoryRu : project.categoryEn}
                     </span>
                     {project.featured && (
-                      <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-[#E8500A] text-white shadow-md">
+                      <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-[#3E72C7] text-white shadow-md">
                         {isRu ? 'Ключевой' : 'Featured'}
                       </span>
                     )}
@@ -318,7 +318,7 @@ export default function ProjectsPage() {
                   <p className="text-[#0A1628]/40 text-xs uppercase tracking-widest mb-2 font-semibold">
                     {isRu ? project.clientRu : project.clientEn}
                   </p>
-                  <h3 className="font-display text-xl text-[#0A1628] mb-4 leading-snug group-hover:text-[#E8500A] transition-colors">
+                  <h3 className="font-display text-xl text-[#0A1628] mb-4 leading-snug group-hover:text-[#3E72C7] transition-colors">
                     {isRu ? project.titleRu : project.titleEn}
                   </h3>
                   <p className="text-[#0A1628]/60 text-sm leading-relaxed mb-6">

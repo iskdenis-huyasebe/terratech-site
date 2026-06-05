@@ -91,9 +91,9 @@ export default function ContactsPage() {
             backgroundSize: '80px 80px',
           }}
         />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#E8500A] opacity-[0.05] rounded-full blur-[120px]" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#3E72C7] opacity-[0.05] rounded-full blur-[120px]" />
         <div className="container-main relative z-10">
-          <p className="text-[#E8500A] text-xs font-semibold uppercase tracking-widest mb-4">
+          <p className="text-[#3E72C7] text-xs font-semibold uppercase tracking-widest mb-4">
             {isRu ? 'Свяжитесь с нами' : 'Get in Touch'}
           </p>
           <h1 className="font-display text-4xl md:text-6xl text-white mb-6 max-w-2xl">
@@ -146,7 +146,7 @@ export default function ContactsPage() {
                         name="name"
                         value={form.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-[#E2DDD6] bg-[#F7F6F3] text-[#0A1628] text-sm focus:outline-none focus:border-[#E8500A] focus:bg-white transition-all"
+                        className="w-full px-4 py-3 rounded-lg border border-[#E2DDD6] bg-[#F7F6F3] text-[#0A1628] text-sm focus:outline-none focus:border-[#3E72C7] focus:bg-white transition-all"
                         placeholder={isRu ? 'Иван Петров' : 'John Smith'}
                       />
                     </div>
@@ -159,7 +159,7 @@ export default function ContactsPage() {
                         name="company"
                         value={form.company}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-[#E2DDD6] bg-[#F7F6F3] text-[#0A1628] text-sm focus:outline-none focus:border-[#E8500A] focus:bg-white transition-all"
+                        className="w-full px-4 py-3 rounded-lg border border-[#E2DDD6] bg-[#F7F6F3] text-[#0A1628] text-sm focus:outline-none focus:border-[#3E72C7] focus:bg-white transition-all"
                         placeholder={isRu ? 'ООО "Инженерные решения"' : 'Your Company Ltd.'}
                       />
                     </div>
@@ -176,7 +176,7 @@ export default function ContactsPage() {
                         name="email"
                         value={form.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-[#E2DDD6] bg-[#F7F6F3] text-[#0A1628] text-sm focus:outline-none focus:border-[#E8500A] focus:bg-white transition-all"
+                        className="w-full px-4 py-3 rounded-lg border border-[#E2DDD6] bg-[#F7F6F3] text-[#0A1628] text-sm focus:outline-none focus:border-[#3E72C7] focus:bg-white transition-all"
                         placeholder="email@company.com"
                       />
                     </div>
@@ -189,7 +189,7 @@ export default function ContactsPage() {
                         name="phone"
                         value={form.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-[#E2DDD6] bg-[#F7F6F3] text-[#0A1628] text-sm focus:outline-none focus:border-[#E8500A] focus:bg-white transition-all"
+                        className="w-full px-4 py-3 rounded-lg border border-[#E2DDD6] bg-[#F7F6F3] text-[#0A1628] text-sm focus:outline-none focus:border-[#3E72C7] focus:bg-white transition-all"
                         placeholder="+7 777 123 45 67"
                       />
                     </div>
@@ -205,7 +205,7 @@ export default function ContactsPage() {
                       rows={5}
                       value={form.message}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-[#E2DDD6] bg-[#F7F6F3] text-[#0A1628] text-sm focus:outline-none focus:border-[#E8500A] focus:bg-white transition-all resize-none"
+                      className="w-full px-4 py-3 rounded-lg border border-[#E2DDD6] bg-[#F7F6F3] text-[#0A1628] text-sm focus:outline-none focus:border-[#3E72C7] focus:bg-white transition-all resize-none"
                       placeholder={isRu
                         ? 'Например: шкафы Rittal VX25 800×600×2000 — 12 штук, доставка в Алматы, срок до 15 июня...'
                         : 'For example: Rittal VX25 800×600×2000 cabinets — 12 units, delivery to Almaty, due June 15...'}
@@ -261,7 +261,7 @@ export default function ContactsPage() {
             <div className="space-y-5">
               {/* Quick contact */}
               <div className="bg-[#0A1628] rounded-2xl p-7 text-white">
-                <p className="text-[#E8500A] text-xs font-semibold uppercase tracking-widest mb-3">
+                <p className="text-[#3E72C7] text-xs font-semibold uppercase tracking-widest mb-3">
                   {isRu ? 'Быстрый контакт' : 'Quick Contact'}
                 </p>
                 <h3 className="font-display text-xl mb-5">
@@ -270,7 +270,7 @@ export default function ContactsPage() {
 
                 <div className="space-y-3">
                   <a href="mailto:dkislenko@terradstr.com" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors text-sm group">
-                    <span className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-[#E8500A]/20 transition-colors">
+                    <span className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-[#3E72C7]/20 transition-colors">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
@@ -278,7 +278,7 @@ export default function ContactsPage() {
                     dkislenko@terradstr.com
                   </a>
                   <a href="tel:+37065288897" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors text-sm group">
-                    <span className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-[#E8500A]/20 transition-colors">
+                    <span className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-[#3E72C7]/20 transition-colors">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                       </svg>
@@ -313,19 +313,19 @@ export default function ContactsPage() {
                 </h3>
                 <ul className="space-y-3 text-sm text-[#0A1628]/70">
                   <li className="flex items-start gap-2">
-                    <svg className="w-4 h-4 text-[#E8500A] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-[#3E72C7] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     {isRu ? 'Перечень оборудования или ТЗ' : 'Equipment list or specifications'}
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg className="w-4 h-4 text-[#E8500A] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-[#3E72C7] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     {isRu ? 'Место и срок поставки' : 'Delivery location and deadline'}
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg className="w-4 h-4 text-[#E8500A] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-[#3E72C7] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     {isRu ? 'Контакты для связи' : 'Contact details'}
@@ -342,7 +342,7 @@ export default function ContactsPage() {
         <div className="container-main">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
             <div>
-              <p className="text-[#E8500A] text-xs font-semibold uppercase tracking-widest mb-3">
+              <p className="text-[#3E72C7] text-xs font-semibold uppercase tracking-widest mb-3">
                 {isRu ? 'География' : 'Locations'}
               </p>
               <h2 className="font-display text-3xl md:text-4xl text-[#0A1628]">
@@ -358,10 +358,10 @@ export default function ContactsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {offices.map((office, i) => (
-              <div key={i} className="bg-[#F7F6F3] rounded-2xl p-7 border border-[#E2DDD6] hover:border-[#E8500A]/40 transition-all">
+              <div key={i} className="bg-[#F7F6F3] rounded-2xl p-7 border border-[#E2DDD6] hover:border-[#3E72C7]/40 transition-all">
                 <div className="flex items-start justify-between mb-5">
                   <span className="text-4xl leading-none">{office.flag}</span>
-                  <span className="text-xs font-semibold text-[#E8500A] bg-[#E8500A]/10 px-3 py-1 rounded-full">
+                  <span className="text-xs font-semibold text-[#3E72C7] bg-[#3E72C7]/10 px-3 py-1 rounded-full">
                     {isRu ? office.note : office.noteEn}
                   </span>
                 </div>
@@ -383,7 +383,7 @@ export default function ContactsPage() {
                     </span>
                   </div>
                   <div className="flex items-center gap-2 flex-wrap">
-                    <a href={`tel:${office.phoneHref}`} className="flex items-center gap-3 text-[#0A1628] hover:text-[#E8500A] transition-colors font-medium">
+                    <a href={`tel:${office.phoneHref}`} className="flex items-center gap-3 text-[#0A1628] hover:text-[#3E72C7] transition-colors font-medium">
                       <svg className="w-4 h-4 text-[#0A1628]/40 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                       </svg>

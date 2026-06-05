@@ -63,7 +63,7 @@ export default function WhySection() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-14">
           <div>
-            <p className="text-[#E8500A] text-xs font-semibold uppercase tracking-widest mb-3">
+            <p className="text-[#3E72C7] text-xs font-semibold uppercase tracking-widest mb-3">
               {isRu ? 'Наши преимущества' : 'Our Advantages'}
             </p>
             <h2 className="font-display text-4xl md:text-5xl text-white">
@@ -82,10 +82,10 @@ export default function WhySection() {
           {reasons.map((r, i) => (
             <div
               key={i}
-              className="group p-7 rounded-2xl border border-white/10 bg-white/[0.02] hover:border-[#E8500A]/50 hover:bg-white/[0.05] transition-all duration-300"
+              className="group p-7 rounded-2xl border border-white/10 bg-white/[0.02] hover:border-[#3E72C7]/50 hover:bg-white/[0.05] transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-xl bg-[#E8500A]/15 border border-[#E8500A]/30 flex items-center justify-center mb-5 group-hover:bg-[#E8500A] transition-colors duration-300">
-                <svg className="w-6 h-6 text-[#E8500A] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+              <div className="w-12 h-12 rounded-xl bg-[#3E72C7]/15 border border-[#3E72C7]/30 flex items-center justify-center mb-5 group-hover:bg-[#3E72C7] transition-colors duration-300">
+                <svg className="w-6 h-6 text-[#3E72C7] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d={r.icon} />
                 </svg>
               </div>
@@ -105,7 +105,7 @@ export default function WhySection() {
             {stats.map((s, i) => (
               <div key={i} className="text-center md:text-left">
                 <div className="font-display text-4xl md:text-5xl text-white mb-2">{s.value}</div>
-                <div className="w-8 h-0.5 bg-[#E8500A] mb-2.5 mx-auto md:mx-0"></div>
+                <div className="w-8 h-0.5 bg-[#3E72C7] mb-2.5 mx-auto md:mx-0"></div>
                 <div className="text-white/55 text-sm">{isRu ? s.labelRu : s.labelEn}</div>
               </div>
             ))}

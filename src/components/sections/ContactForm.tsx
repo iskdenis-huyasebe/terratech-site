@@ -51,7 +51,7 @@ export default function ContactForm() {
     }
   };
 
-  const inputClass = "w-full bg-[#F7F6F3] border border-[#E2DDD6] rounded-lg px-4 py-3 text-[#0A1628] text-sm placeholder-[#0A1628]/35 focus:outline-none focus:border-[#E8500A] focus:ring-1 focus:ring-[#E8500A] transition-colors";
+  const inputClass = "w-full bg-[#F7F6F3] border border-[#E2DDD6] rounded-lg px-4 py-3 text-[#0A1628] text-sm placeholder-[#0A1628]/35 focus:outline-none focus:border-[#3E72C7] focus:ring-1 focus:ring-[#3E72C7] transition-colors";
   const labelClass = "block text-xs font-medium text-[#0A1628]/60 mb-1";
 
   return (
@@ -60,7 +60,7 @@ export default function ContactForm() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Left info */}
           <div>
-            <p className="text-[#E8500A] text-xs font-semibold uppercase tracking-widest mb-3">
+            <p className="text-[#3E72C7] text-xs font-semibold uppercase tracking-widest mb-3">
               {locale === 'ru' ? 'Связаться с нами' : 'Contact Us'}
             </p>
             <h2 className="font-display text-4xl md:text-5xl text-[#0A1628] mb-4">
@@ -77,7 +77,7 @@ export default function ContactForm() {
                 <div>
                   <p className="font-semibold text-[#0A1628] text-sm mb-1">{locale === 'ru' ? 'Литва — Вильнюс' : 'Lithuania — Vilnius'}</p>
                   <p className="text-[#0A1628]/50 text-sm mb-1">{t('office_lt')}</p>
-                  <a href="tel:+37065288897" className="text-[#E8500A] text-sm font-medium hover:underline">{t('phone_lt')}</a>
+                  <a href="tel:+37065288897" className="text-[#3E72C7] text-sm font-medium hover:underline">{t('phone_lt')}</a>
               <span className="flex items-center gap-1.5 mt-1"><a href="https://wa.me/37065288897" target="_blank" rel="noopener" title="WhatsApp" className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#25D366] hover:opacity-80 transition-opacity">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.114.55 4.1 1.508 5.83L0 24l6.335-1.482A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 01-5.032-1.388l-.36-.214-3.733.873.936-3.629-.235-.372A9.799 9.799 0 012.182 12C2.182 6.579 6.579 2.182 12 2.182S21.818 6.579 21.818 12 17.421 21.818 12 21.818z"/></svg>
             </a><a href="https://t.me/+37065288897" target="_blank" rel="noopener" title="Telegram" className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#2AABEE] hover:opacity-80 transition-opacity">
@@ -92,7 +92,7 @@ export default function ContactForm() {
                 <div>
                   <p className="font-semibold text-[#0A1628] text-sm mb-1">{locale === 'ru' ? 'Испания — Гандия' : 'Spain — Gandia'}</p>
                   <p className="text-[#0A1628]/50 text-sm mb-1">{t('office_es')}</p>
-                  <a href="tel:+34641005590" className="text-[#E8500A] text-sm font-medium hover:underline">{t('phone_es')}</a>
+                  <a href="tel:+34641005590" className="text-[#3E72C7] text-sm font-medium hover:underline">{t('phone_es')}</a>
                 </div>
               </div>
 
@@ -102,7 +102,7 @@ export default function ContactForm() {
                 <div>
                   <p className="font-semibold text-[#0A1628] text-sm mb-1">{locale === 'ru' ? 'Казахстан' : 'Kazakhstan'}</p>
                   <p className="text-xs text-[#0A1628]/50 mb-1">{locale === 'ru' ? 'ул. Алимжанова 38, Алматы' : '38 Alimzhanova str, Almaty'}</p>
-                  <a href="tel:+37065288897" className="text-[#E8500A] text-sm font-medium hover:underline">{t('phone_kz')}</a>
+                  <a href="tel:+37065288897" className="text-[#3E72C7] text-sm font-medium hover:underline">{t('phone_kz')}</a>
               <span className="flex items-center gap-1.5 mt-1"><a href="https://wa.me/37065288897" target="_blank" rel="noopener" title="WhatsApp" className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#25D366] hover:opacity-80 transition-opacity">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.114.55 4.1 1.508 5.83L0 24l6.335-1.482A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 01-5.032-1.388l-.36-.214-3.733.873.936-3.629-.235-.372A9.799 9.799 0 012.182 12C2.182 6.579 6.579 2.182 12 2.182S21.818 6.579 21.818 12 17.421 21.818 12 21.818z"/></svg>
             </a><a href="https://t.me/+37065288897" target="_blank" rel="noopener" title="Telegram" className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#2AABEE] hover:opacity-80 transition-opacity">
@@ -116,7 +116,7 @@ export default function ContactForm() {
                 <div className="w-10 h-10 bg-[#F7F6F3] rounded-lg flex items-center justify-center text-lg flex-shrink-0">✉️</div>
                 <div>
                   <p className="font-semibold text-[#0A1628] text-sm mb-1">Email</p>
-                  <a href="mailto:dkislenko@terradstr.com" className="text-[#E8500A] text-sm font-medium hover:underline">dkislenko@terradstr.com</a>
+                  <a href="mailto:dkislenko@terradstr.com" className="text-[#3E72C7] text-sm font-medium hover:underline">dkislenko@terradstr.com</a>
                 </div>
               </div>
             </div>
@@ -139,7 +139,7 @@ export default function ContactForm() {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className={labelClass}>
-                      {locale === 'ru' ? 'Имя' : 'Name'} <span className="text-[#E8500A]">*</span>
+                      {locale === 'ru' ? 'Имя' : 'Name'} <span className="text-[#3E72C7]">*</span>
                     </label>
                     <input id="name" name="name" value={form.name} onChange={handleChange} required placeholder={t('name')} className={inputClass} />
                   </div>
@@ -153,7 +153,7 @@ export default function ContactForm() {
 
                 <div>
                   <label htmlFor="email" className={labelClass}>
-                    Email <span className="text-[#E8500A]">*</span>
+                    Email <span className="text-[#3E72C7]">*</span>
                   </label>
                   <input id="email" name="email" type="email" value={form.email} onChange={handleChange} required placeholder={t('email')} className={inputClass} />
                 </div>
@@ -180,20 +180,20 @@ export default function ContactForm() {
                     checked={consent}
                     onChange={e => setConsent(e.target.checked)}
                     required
-                    style={{ marginTop: '2px', accentColor: '#E8500A', width: '16px', height: '16px', flexShrink: 0, cursor: 'pointer' }}
+                    style={{ marginTop: '2px', accentColor: '#3E72C7', width: '16px', height: '16px', flexShrink: 0, cursor: 'pointer' }}
                   />
                   <label htmlFor="consent" style={{ fontSize: '12px', color: 'rgba(10,22,40,0.55)', lineHeight: '1.5', cursor: 'pointer' }}>
                     {locale === 'ru' ? (
                       <>
                         Нажимая «Отправить», вы соглашаетесь с{' '}
-                        <Link href={`/${locale}/privacy`} style={{ color: '#E8500A', textDecoration: 'underline' }}>
+                        <Link href={`/${locale}/privacy`} style={{ color: '#3E72C7', textDecoration: 'underline' }}>
                           политикой обработки персональных данных
                         </Link>
                       </>
                     ) : (
                       <>
                         By clicking Submit, you agree to our{' '}
-                        <Link href={`/${locale}/privacy`} style={{ color: '#E8500A', textDecoration: 'underline' }}>
+                        <Link href={`/${locale}/privacy`} style={{ color: '#3E72C7', textDecoration: 'underline' }}>
                           privacy policy
                         </Link>
                       </>
