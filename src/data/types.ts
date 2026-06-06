@@ -8,7 +8,9 @@ export type CategoryId =
   | 'components'   // компоненты щитов
   | 'ups'          // ИБП
   | 'outdoor'      // уличные шкафы
-  | 'accessories'; // аксессуары
+  | 'accessories'  // аксессуары
+  | 'batteries'    // аккумуляторы
+  | 'generators';  // дизельные генераторы
 
 export interface Article {
   code: string;          // 8615.000
