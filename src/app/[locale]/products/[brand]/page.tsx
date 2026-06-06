@@ -103,7 +103,7 @@ export default async function BrandPage({
                     className="group bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:border-[#3E72C7]/50"
                   >
                     <div className="relative h-44 overflow-hidden bg-[#0A1628]">
-                      <img src={p.image} alt={isRu ? p.name : p.nameEn} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                      <img src={p.image} alt={isRu ? p.name : p.nameEn} className="w-full h-full object-contain p-3 transition-transform duration-500 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#05070E]/80 to-transparent" />
                       <span className="absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-md text-white border border-white/20">
                         {isRu ? cat.label : cat.labelEn}
